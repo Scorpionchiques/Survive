@@ -17,11 +17,6 @@ public class MenuController : MonoBehaviour {
         rate.GetComponent<Button>().onClick.AddListener(onRatePressed);
 	}
 
-    private void OnMouseUpAsButton()
-    {
-        
-    }
-
     private void onPlayPressed()
     {
         SceneManager.LoadScene("SaveSelection");
@@ -51,7 +46,7 @@ public class MenuController : MonoBehaviour {
 
     private void onRatePressed()
     {
-        Application.OpenURL("market://");
+        Application.OpenURL("https://twitter.com/betehtin_art/status/837810270651187200");
     }
 
 }
