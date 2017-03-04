@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class MenuController : MonoBehaviour {
 
@@ -19,7 +18,7 @@ public class MenuController : MonoBehaviour {
 
     private void onPlayPressed()
     {
-        SceneManager.LoadScene("SaveSelection");
+        SceneManager.LoadScene("Save Manager");
     }
 
     private void onOptionsPressed()
