@@ -6,8 +6,8 @@ public class DiamondSquare4 : MonoBehaviour {
 
     Color32[] cols;
  
-	int pwidth=16;
-	int pheight=16;
+	int pwidth=128;
+	int pheight=128;
 
 	float pwidthpheight;
 	int GRAIN=8; //PLAY WITH THIS PARAMETER
@@ -93,7 +93,7 @@ public class DiamondSquare4 : MonoBehaviour {
 
 	//This is something of a "helper function" to create an initial grid
 	//before the recursive function is called. 
-	void drawPlasma(float w, float h)
+	void drawPlasma(int w, int h)
 	{
 	   float c1, c2, c3, c4;
 			 
@@ -110,15 +110,15 @@ public class DiamondSquare4 : MonoBehaviour {
     //This is the recursive function that implements the random midpoint
     //displacement algorithm.  It will call itself until the grid pieces
     //become smaller than one pixel.   
-	void divideGrid(float x, float y, float w, float h, float c1, float c2, float c3, float c4)
+	void divideGrid(float x, float y, int w, int h, float c1, float c2, float c3, float c4)
 	{       
-	   float newWidth = (int)w>>1;
-	   float newHeight = (int)h>>1;
+	   int newWidth = w>>1;
+	   int newHeight = h>>1;
 	 
-	   if (w < 1.0f || h < 1.0f)
+	   if (w == 1 || h == 1)
 	   {
 		 //The four corners of the grid piece will be averaged and drawn as a single pixel.
-		 float c = (c1 + c2 + c3 + c4) * 0.25f;
+		float c = (c1 + c2 + c3 + c4)/4;
             cols[(int)x + (int)y * pwidth] = computeColor(c); //TEST, TO USE CHNAGE COLOUR TO FLOAT
 	   }
 	   else
@@ -145,7 +145,5 @@ public class DiamondSquare4 : MonoBehaviour {
 		 divideGrid(x + newWidth, y + newHeight, newWidth, newHeight, middle, edge2, c3, edge3);
 		 divideGrid(x, y + newHeight, newWidth, newHeight, edge4, middle, edge3, c4);
 	   }
-	}
-
-	
+	}	
 }
