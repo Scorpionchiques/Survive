@@ -15,7 +15,8 @@ public class ButtonsSoundController : MonoBehaviour {
 
     private void clickSound()
     {
-        GetComponent<AudioSource>().Play();
+        if (PlayerPrefs.GetString("Sound") == "ON")
+            GetComponent<AudioSource>().Play();
     }
     
 }
