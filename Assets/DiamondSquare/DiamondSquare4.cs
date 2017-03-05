@@ -4,30 +4,25 @@ using System.IO;
 
 public class DiamondSquare4 : MonoBehaviour {
 
-    Color32[] cols;
- 
-	int pwidth=128;
-	int pheight=128;
+    //Color32[] cols;
+    float[] cols;
+	int pwidth=16;
+	int pheight=16;
 
 	float pwidthpheight;
 	int GRAIN=8; //PLAY WITH THIS PARAMETER
-	Texture2D texture;// TEST
 	
 	// Use this for initialization
 	void Start () 
 	{
 		    
 		pwidthpheight = (float)(pwidth+pheight);
+        
+        //cols = new Color32[pwidth*pheight];
+        cols = new float[pwidth*pheight];
 
-        texture = new Texture2D(pwidth, pheight);
-        GetComponent<Renderer>().material.mainTexture = texture;
-
-        cols = new Color32[pwidth*pheight];
-
-		// draw one here already..
-		drawPlasma(pwidth, pheight);
-	    texture.SetPixels32(cols);
-		texture.Apply();
+        // draw one here already..
+        createHeightMap(pwidth, pheight);
 	}
 	
 	// Update is called once per frame
@@ -36,64 +31,19 @@ public class DiamondSquare4 : MonoBehaviour {
         // hold button down to generate new
         if (Input.GetMouseButton(0))
 		{
-			drawPlasma(pwidth, pheight);
-			texture.SetPixels32(cols);
-			texture.Apply();
+            System.IO.StreamWriter file = new System.IO.StreamWriter("test.txt");
+            foreach(var c in cols)
+            {
+                file.WriteLine(c.ToString() + ' ');
+            }            
+            file.Close();
+            createHeightMap(pwidth, pheight);
         }
 	}
 
-
-	//	--- actual code starts ----
-	float displace(float num)
-	{
-		float max = num / pwidthpheight * GRAIN;
-		return Random.Range(-0.5f, 0.5f)* max;
-	}
-
-	//Returns a color based on a color value, c.
-    //TEST FUNCTTION
-	Color computeColor(float c)
-	{      
-	  float Red = 0;
-	  float Green = 0;
-	  float Blue = 0;
-			 
-	  if (c < 0.5f)
-	  {
-		Red = c * 2;
-	  }
-	  else
-	  {
-		Red = (1.0f - c) * 2;
-	  }
-	  if (c >= 0.3 && c < 0.8f)
-	  {
-		Green = (c - 0.3f) * 2;
-	  }
-	  else if (c < 0.3f)
-	  {
-		 Green = (0.3f - c) * 2;
-	  }
-	  else
-	  {
-		 Green = (1.3f - c) * 2;
-	  }
-			 
-	  if (c >= 0.5f)
-	  {
-		 Blue = (c - 0.5f) * 2;
-	  }
-	  else
-	  {
-		 Blue = (0.5f - c) * 2;
-	  }
-			 
-	   return new Color(Red, Green, Blue);
-	}
-
-	//This is something of a "helper function" to create an initial grid
+    //This is something of a "helper function" to create an initial grid
 	//before the recursive function is called. 
-	void drawPlasma(int w, int h)
+	float[][] createHeightMap(int w, int h)
 	{
 	   float c1, c2, c3, c4;
 			 
@@ -105,7 +55,9 @@ public class DiamondSquare4 : MonoBehaviour {
 	   c4 = Random.value;
 		
 	   divideGrid(0.0f, 0.0f, w , h , c1, c2, c3, c4);
-	}
+
+       return vec2mat(cols, pwidth);
+    }
 
     //This is the recursive function that implements the random midpoint
     //displacement algorithm.  It will call itself until the grid pieces
@@ -119,7 +71,7 @@ public class DiamondSquare4 : MonoBehaviour {
 	   {
 		 //The four corners of the grid piece will be averaged and drawn as a single pixel.
 		float c = (c1 + c2 + c3 + c4)/4;
-            cols[(int)x + (int)y * pwidth] = computeColor(c); //TEST, TO USE CHNAGE COLOUR TO FLOAT
+            cols[(int)x + (int)y * pwidth] = c;//computeColor(c); //TEST, TO USE CHNAGE COLOUR TO FLOAT
 	   }
 	   else
 	   {
@@ -145,5 +97,25 @@ public class DiamondSquare4 : MonoBehaviour {
 		 divideGrid(x + newWidth, y + newHeight, newWidth, newHeight, middle, edge2, c3, edge3);
 		 divideGrid(x, y + newHeight, newWidth, newHeight, edge4, middle, edge3, c4);
 	   }
-	}	
+	}
+
+    float displace(float num)
+    {
+        float max = num / pwidthpheight * GRAIN;
+        return Random.Range(-0.5f, 0.5f) * max;
+    }
+    
+    float[][] vec2mat(float[] vec, int n)
+    {
+        float[][] mat = new float[n][];
+        for (int i=0;i<n;++i)
+        {
+            mat[i] = new float[n];
+            for (int j=0;j<n;++j)
+            {
+                mat[i][j] = vec[n * i + j];
+            }
+        }
+        return mat;
+    }
 }
