@@ -9,21 +9,18 @@ public class OptionsController : MonoBehaviour {
 
     void Start () {
 
-        Debug.Log(PlayerPrefs.GetString("Music"));
-
         back.GetComponent<Button>().onClick.AddListener(returnToMenu);
         music.GetComponent<Button>().onClick.AddListener(musicController);
         sound.GetComponent<Button>().onClick.AddListener(soundController);
 
         if (PlayerPrefs.GetString("Music") == "ON")
-            music.image.sprite = musicOn;
+            setMusicOn();
         else
-            music.image.sprite = musicOff;
-
+            setMusicOff();
         if (PlayerPrefs.GetString("Sound") == "ON")
-            sound.image.sprite = soundOn;
+            setSoundOn();
         else
-            sound.image.sprite = soundOff;
+            setSoundOff();
     }
     
     private void returnToMenu()
@@ -35,13 +32,11 @@ public class OptionsController : MonoBehaviour {
     {
         if (PlayerPrefs.GetString("Music") == "ON")
         {
-            PlayerPrefs.SetString("Music", "OFF");
-            music.image.sprite = musicOff;
+            setMusicOff();
         }
         else
         {
-            PlayerPrefs.SetString("Music", "ON");
-            music.image.sprite = musicOn;
+            setMusicOn();
         }
     }
 
@@ -49,14 +44,39 @@ public class OptionsController : MonoBehaviour {
     {
         if (PlayerPrefs.GetString("Sound") == "ON")
         {
-            PlayerPrefs.SetString("Sound", "OFF");
-            sound.image.sprite = soundOff;
+            setSoundOff();
         }
         else
         {
-            PlayerPrefs.SetString("Sound", "ON");
-            sound.image.sprite = soundOn;
+            setSoundOn();
         }
     }
 
+    private void setMusicOn()
+    {
+        PlayerPrefs.SetString("Music", "ON");
+        music.image.sprite = musicOn;
+        music.GetComponentInChildren<Text>().text = "MUSIC: ON";
+    }
+
+    private void setMusicOff()
+    {
+        PlayerPrefs.SetString("Music", "OFF");
+        music.image.sprite = musicOff;
+        music.GetComponentInChildren<Text>().text = "MUSIC: OFF";
+    }
+
+    private void setSoundOn()
+    {
+        PlayerPrefs.SetString("Sound", "ON");
+        sound.image.sprite = soundOn;
+        sound.GetComponentInChildren<Text>().text = "SOUND: ON";
+    }
+
+    private void setSoundOff()
+    {
+        PlayerPrefs.SetString("Sound", "OFF");
+        sound.image.sprite = soundOff;
+        sound.GetComponentInChildren<Text>().text = "SOUND: OFF";
+    }
 }

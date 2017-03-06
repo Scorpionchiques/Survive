@@ -19,8 +19,10 @@ public class SlotController : MonoBehaviour {
 
         if (PlayerPrefs.GetString(name) == "EMPTY")
         {
-            PlayerPrefs.SetString(name, "USED");
-            newGameConfirmation();
+            if (newGameConfirmation()) {
+                PlayerPrefs.SetString(name, "USED");
+                SceneManager.LoadScene("Game");
+            }
         }
         else
         {
@@ -31,13 +33,12 @@ public class SlotController : MonoBehaviour {
 
     private void disableControls()
     {
-        var otherSlotControls = GameObject.FindGameObjectsWithTag("Controls");
-        foreach (GameObject controlPanel in otherSlotControls)
+        foreach (GameObject controlPanel in GameObject.FindGameObjectsWithTag("Controls"))
         {
             controlPanel.SetActive(false);
         }
-        var otherSlots = GameObject.FindGameObjectsWithTag("Slot");
-        foreach (GameObject slot in otherSlots)
+
+        foreach (GameObject slot in GameObject.FindGameObjectsWithTag("Slot"))
         {
             slot.GetComponent<Button>().interactable = true;
         }
@@ -45,7 +46,7 @@ public class SlotController : MonoBehaviour {
 
     private void slotDelete()
     {
-        if (deleteConfirm())
+        if (deleteConfirmation())
         {
             PlayerPrefs.SetString(name, "EMPTY");
             controls.SetActive(false);
@@ -55,7 +56,22 @@ public class SlotController : MonoBehaviour {
 
     private void slotLoad()
     {
-        if (loadConfirm()) SceneManager.LoadScene("Game");
+        if (loadConfirmation()) SceneManager.LoadScene("Game");
+    }
+
+    private bool newGameConfirmation()
+    {
+        return true;
+    }
+
+    private bool deleteConfirmation()
+    {
+        return true;
+    }
+
+    private bool loadConfirmation()
+    {
+        return true;
     }
 
 }
