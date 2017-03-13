@@ -5,51 +5,50 @@ using UnityEngine;
 
 public class ChunkGenerator : MonoBehaviour {
 
-    int size = 16;
-    float[] cols;
-    int levels;
-    float sizesize;
-    int GRAIN = 8; //PLAY WITH THIS PARAMETER    
-    heightBorder hb;
-
     // Use this for initialization
     void Start () {
+        //get chunk prefab
         Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Chunk.prefab", typeof(GameObject));
         GameObject chunk = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
-        
-        sizesize = (size * size);
-
-        int[][] heightMap = heightConversion(createHeightMap(size, size));
 
         //intitialize
-        hb = new heightBorder();
-
-        levels = 5;
-        hb.data = new float[levels];
-
-        hb.size = levels;
-
-                            
+        objectsGenerator oGenerator = new objectsGenerator();
     }
 	
-    private struct heightBorder
-    {
-        public float[] data { get; set; }
-        public int size { get; set; }
-        public void setData(System.Array d)
-        {
-            for (int i = 0; i < size; ++i)
-                data[i] = i;
-        }
-    }
     // Update is called once per frame
     void Update () {
 		
 	}
-    
-     //This is something of a "helper function" to create an initial grid
-    //before the recursive function is called. 
-    float[][] createHeightMap(int w, int h)
+}
+
+//object that generate object map throw using diaond square algorithm
+public class objectsGenerator
+{
+    private int size;//2^n size of square objects mat
+    private float[] cols;//vec to fill with height
+    private int levels; //count of objects types
+    private float sizesize; //size^2
+    private int GRAIN; //PLAY WITH THIS PARAMETER    
+    private heightBorder hb;
+
+    public objectsGenerator()
+    {
+        size = 16;
+        hb = new heightBorder();
+        levels = 5;
+        hb.size = levels;
+        sizesize = (size * size);
+        cols = new float[(int)sizesize];
+    }
+
+    //get objects map
+    public int[][] GetObjectsMap()
+    {
+        return heightConversion(createHeightMap(size, size));
+    }
+
+    //This is something of a "helper function" to create an initial grid and to call diamond square agorithm.
+    private float[][] createHeightMap(int w, int h)
     {
         float c1, c2, c3, c4;
 
@@ -65,10 +64,8 @@ public class ChunkGenerator : MonoBehaviour {
         return vec2mat(cols, size);
     }
 
-    //This is the recursive function that implements the random midpoint
-    //displacement algorithm.  It will call itself until the grid pieces
-    //become smaller than one pixel.   
-    void divideGrid(float x, float y, int w, int h, float c1, float c2, float c3, float c4)
+    //This is the recursive function that implements the diamond square algorithm.
+    private void divideGrid(float x, float y, int w, int h, float c1, float c2, float c3, float c4)
     {
         int newWidth = w >> 1;
         int newHeight = h >> 1;
@@ -105,15 +102,17 @@ public class ChunkGenerator : MonoBehaviour {
         }
     }
 
-    float displace(float num)
+    //random displace for diamond square algorithm
+    private float displace(float num)
     {
         float max = num / sizesize * GRAIN;
         return Random.Range(-0.5f, 0.5f) * max;
     }
 
-    float[][] vec2mat(float[] vec, int n)
+    //convert vec to square mat
+    private float[][] vec2mat(float[] vec, int n)
     {
-        float[][] mat = new float[n][];       
+        float[][] mat = new float[n][];
         for (int i = 0; i < n; ++i)
         {
             mat[i] = new float[n];
@@ -122,10 +121,12 @@ public class ChunkGenerator : MonoBehaviour {
                 mat[i][j] = vec[n * i + j];
             }
         }
+        vec = null;
         return mat;
     }
 
-    int[][] heightConversion(float[][] mat)
+    //convert float heoght map to int objects map
+    private int[][] heightConversion(float[][] mat)
     {
         int[][] matInt = new int[size][];
         for (int i = 0; i < size; ++i)
@@ -134,14 +135,31 @@ public class ChunkGenerator : MonoBehaviour {
             for (int j = 0; j < size; ++j)
             {
                 byte increment = 0;
-                while (increment>hb.size)
+                while (increment > hb.size)
                 {
                     if (mat[i][j] > hb.data[increment++])
-                        matInt[i][j] = increment;                   
+                        matInt[i][j] = increment;
                 }
             }
         }
-        return matInt; 
+        mat = null;
+        return matInt;
     }
-    
+
+    //help tool-structure to carry out height to object conversion
+    private struct heightBorder
+    {
+        public float[] data
+        {
+            get
+            {
+                data = new float[size];
+                for (int i = 0; i < size; ++i)
+                    data[i] = i / size;
+                return data;
+            }
+            set { }
+        }
+        public int size { get; set; }
+    }
 }
