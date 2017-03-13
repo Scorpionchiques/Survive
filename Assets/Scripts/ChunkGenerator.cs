@@ -5,20 +5,54 @@ using UnityEngine;
 
 public class ChunkGenerator : MonoBehaviour {
 
+    objectsGenerator oGenerator;
+
     // Use this for initialization
     void Start () {
-        //get chunk prefab
-        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Chunk.prefab", typeof(GameObject));
-        GameObject chunk = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
-
+        
         //intitialize
-        objectsGenerator oGenerator = new objectsGenerator();
+        oGenerator = new objectsGenerator();      
+        setObjects();
     }
 	
+    void setObjects()
+    {
+        int[][] objmap = oGenerator.GetObjectsMap();       
+        for (int i =0; i<objmap.GetLength(0); ++i)
+        {           
+            for (int j=0; j<objmap.GetLength(0);++j)
+            {               
+                if (objmap[i][j] == 4) //magic 4
+                {
+                    Object treeprefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/tree.prefab", typeof(GameObject));
+                    GameObject tree = (GameObject)Instantiate(treeprefab,new Vector3(10.0f * ((float)i / 16), 10.0f * ((float)j / 16), 0), transform.rotation);                    
+                    tree.transform.SetParent(transform);
+                                        
+                    //tree.transform.localPosition = GetComponent<PositionReferences>().GetNextPosition();
+                    //in work with it
+                }
+            }   
+        }
+
+    }
     // Update is called once per frame
     void Update () {
 		
 	}
+}
+
+//in work with it
+public class PositionReferences : MonoBehaviour
+{
+    public Transform[] positions;
+    private int index = 0;
+
+    public Vector3 GetNextPosition()
+    {
+        Vector3 result = positions[index].localPosition;
+        index = index + 1;
+        return result;
+    }
 }
 
 //object that generate object map throw using diaond square algorithm
@@ -39,6 +73,7 @@ public class objectsGenerator
         hb.size = levels;
         sizesize = (size * size);
         cols = new float[(int)sizesize];
+        GRAIN = 8;
     }
 
     //get objects map
@@ -128,17 +163,20 @@ public class objectsGenerator
     //convert float heoght map to int objects map
     private int[][] heightConversion(float[][] mat)
     {
+        int increment=0;
         int[][] matInt = new int[size][];
         for (int i = 0; i < size; ++i)
         {
             matInt[i] = new int[size];
             for (int j = 0; j < size; ++j)
-            {
-                byte increment = 0;
-                while (increment > hb.size)
+            {               
+                increment = 0;
+                while (increment < hb.size)
                 {
                     if (mat[i][j] > hb.data[increment++])
-                        matInt[i][j] = increment;
+                    {
+                        matInt[i][j] = increment;                              
+                    }
                 }
             }
         }
@@ -147,16 +185,20 @@ public class objectsGenerator
     }
 
     //help tool-structure to carry out height to object conversion
-    private struct heightBorder
+    private class heightBorder
     {
+        private float[] _data;
         public float[] data
         {
             get
             {
-                data = new float[size];
-                for (int i = 0; i < size; ++i)
-                    data[i] = i / size;
-                return data;
+                if (_data == null)
+                {
+                    _data = new float[size];
+                    for (int i = 0; i < size; ++i)
+                        _data[i] = (float)(i) / size;                    
+                }
+                return _data;
             }
             set { }
         }
