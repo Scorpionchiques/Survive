@@ -7,33 +7,66 @@ public class ChunkGenerator : MonoBehaviour {
 
     objectsGenerator oGenerator;
 
+    public float[] HeightBound;// { get; set; }
     // Use this for initialization
     void Start () {
-        
-        //intitialize
+        if (HeightBound.Length==0)
+        {
+            HeightBound = new float[4];
+            for (int i = 0; i < 4; ++i)
+            {
+                HeightBound[i] = Random.value;
+            }
+        }
+
+        //intitialize        
         oGenerator = new objectsGenerator();      
         setObjects();
     }
 	
     void setObjects()
     {
-        int[][] objmap = oGenerator.GetObjectsMap();       
-        for (int i =0; i<objmap.GetLength(0); ++i)
+        int[][] objmap = oGenerator.GetObjectsMap(HeightBound);
+        for (int i =0; i<objmap.GetLength(0); i+=1)
         {           
-            for (int j=0; j<objmap.GetLength(0);++j)
+            for (int j=0; j<objmap.GetLength(0);j+=1)
             {               
-                if (objmap[i][j] == 4) //magic 4
+                if (objmap[i][j] == 5) //magic 5
                 {
                     Object treeprefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/tree.prefab", typeof(GameObject));
-                    GameObject tree = (GameObject)Instantiate(treeprefab,new Vector3(10.0f * ((float)i / 16), 10.0f * ((float)j / 16), 0), transform.rotation);                    
+                    GameObject tree = (GameObject)Instantiate(treeprefab,
+                        new Vector3(10.0f * ((float)(i) / 16) + transform.position.x, 10.0f * ((float)j / 16) + transform.position.y, 0),
+                        transform.rotation);                    
                     tree.transform.SetParent(transform);
                                         
                     //tree.transform.localPosition = GetComponent<PositionReferences>().GetNextPosition();
                     //in work with it
                 }
+                if (objmap[i][j] == 4) //magic 4
+                {
+                    Object shrubprefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/shrub.prefab", typeof(GameObject));
+                    GameObject shrub = (GameObject)Instantiate(shrubprefab,
+                        new Vector3(10.0f * ((float)i / 16) + transform.position.x, 10.0f * ((float)j / 16) + transform.position.y, 0),
+                        transform.rotation);
+                    shrub.transform.SetParent(transform);
+
+                    //tree.transform.localPosition = GetComponent<PositionReferences>().GetNextPosition();
+                    //in work with it
+                }
+
+                if (objmap[i][j] == 1) //magic 1
+                {
+                    Object waterprefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/water.prefab", typeof(GameObject));
+                    GameObject water = (GameObject)Instantiate(waterprefab,
+                        new Vector3(10.0f * ((float)i / 16) + transform.position.x, 10.0f * ((float)j / 16) + transform.position.y, 0),
+                        transform.rotation);
+                    water.transform.SetParent(transform);
+
+                    //tree.transform.localPosition = GetComponent<PositionReferences>().GetNextPosition();
+                    //in work with it
+                }
             }   
         }
-
     }
     // Update is called once per frame
     void Update () {
@@ -77,24 +110,19 @@ public class objectsGenerator
     }
 
     //get objects map
-    public int[][] GetObjectsMap()
+    public int[][] GetObjectsMap(float[] HeightBound)
     {
-        return heightConversion(createHeightMap(size, size));
+        return heightConversion(createHeightMap(size, size, HeightBound));
     }
 
     //This is something of a "helper function" to create an initial grid and to call diamond square agorithm.
-    private float[][] createHeightMap(int w, int h)
+    private float[][] createHeightMap(int w, int h, float[] HeightBound)
     {
-        float c1, c2, c3, c4;
 
         //Assign the four corners of the intial grid random color values
         //These will end up being the colors of the four corners of the applet.     
-        c1 = Random.value;
-        c2 = Random.value;
-        c3 = Random.value;
-        c4 = Random.value;
-
-        divideGrid(0.0f, 0.0f, w, h, c1, c2, c3, c4);
+        
+        divideGrid(0.0f, 0.0f, w, h, HeightBound[0], HeightBound[1], HeightBound[2], HeightBound[3]);
 
         return vec2mat(cols, size);
     }
@@ -120,7 +148,7 @@ public class objectsGenerator
             float edge4 = (c4 + c1) / 2;
 
             //Make sure that the midpoint doesn't accidentally "randomly displaced" past the boundaries!
-            if (middle <= 0)
+            if (middle < 0)
             {
                 middle = 0;
             }
