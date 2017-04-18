@@ -1,0 +1,15 @@
+[
+    {
+        "id": 0,
+        "title": "Steel Gloves",
+        "stackable": true,
+        "maxStack": 10,
+        "slug":  "steel_gloves"
+    },
+    {
+        "id": 1,
+        "title": "Bronze Sword",
+        "stackable": false,
+        "slug": "bronze_sword"
+    }
+]
