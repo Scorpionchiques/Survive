@@ -9,34 +9,32 @@ public class ChunkGenerator : MonoBehaviour {
     objectsGenerator oGenerator;
     float backGroundSize;
     float halfBackGroundSize;
-    public float[] HeightBound;// { get; set; }
+    float[] heightBound;// { get; set; }
+    public float[] HeightBound {
+        get
+        {
+            if (heightBound == null)
+            {
+                heightBound = new float[4];
+                for (int i = 0; i < 4; ++i)
+                {
+                    heightBound[i] = UnityEngine.Random.value;
+                }
+            }
+            return heightBound;
+        }
+        set
+        {
+
+        }
+    }
     // Use this for initialization
     void Start () {
-        if (HeightBound.Length==0)
-        {
-            HeightBound = new float[4];
-            for (int i = 0; i < 4; ++i)
-            {
-                HeightBound[i] = UnityEngine.Random.value;
-            }
-        }
+        //intitialize      
         backGroundSize = 20.0f;
-        halfBackGroundSize = backGroundSize / 2;
-        //intitialize        
+        halfBackGroundSize = backGroundSize / 2;        
         oGenerator = new objectsGenerator();      
         setObjects();
-    }
-
-    public void setHeightBound(float[] boundaryValues)
-    {
-        for (int i = 0; i < 4; ++i)
-        {
-            HeightBound[i] = boundaryValues[i];
-        }
-    }
-    public float[] getHeightBound()
-    {
-        return HeightBound;
     }
 
     void setObjects()

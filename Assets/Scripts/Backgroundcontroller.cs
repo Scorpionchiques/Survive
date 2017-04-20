@@ -39,8 +39,10 @@ public class Backgroundcontroller : MonoBehaviour {
 						inst = Instantiate (Resources.Load<GameObject> ("Background"), Background_position, Quaternion.identity) as GameObject;
 						inst.transform.Find ("Left").gameObject.GetComponent<Collider2D> ().enabled = false; 
 					}
-                    ChunkGenerator ncg = inst.GetComponent<ChunkGenerator>();
-                    ChunkGenerator ocg = transform.GetComponent<ChunkGenerator>();
+
+                    //ChunkGenerator ncg = inst.GetComponent<ChunkGenerator>();
+                    //ChunkGenerator ocg = transform.parent.GetComponent<ChunkGenerator>();
+                    
                     //ncg.setHeightBound(ocg.getHeightBound());
                     //inst.AddComponent<ChunkGenerator>(ncg);
 
