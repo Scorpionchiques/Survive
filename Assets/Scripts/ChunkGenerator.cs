@@ -42,7 +42,6 @@ public class ChunkGenerator : MonoBehaviour {
     void setObjects()
     {
         int[][] objmap = oGenerator.GetObjectsMap(HeightBound);
-        Debug.Log(objmap.GetLength(0));
         int objmapsize = objmap.GetLength(0);
         for (int i =0; i<objmapsize; ++i)
         {
@@ -50,10 +49,7 @@ public class ChunkGenerator : MonoBehaviour {
             {
                 UnityEngine.Object prefab = null;
                 GameObject obj = null;
-                String pathPrefab = null;
-                Vector3 pos = new Vector3(backGroundSize * ((float)(i) / objmapsize) + transform.position.x - halfBackGroundSize,
-                    backGroundSize * ((float)j / objmapsize) + transform.position.y - halfBackGroundSize, 
-                    0);
+                string pathPrefab = null;
                 switch (objmap[i][j])
                 {
                     case 1:
@@ -71,6 +67,9 @@ public class ChunkGenerator : MonoBehaviour {
                 }
                 if (pathPrefab != null)
                 {
+                    Vector3 pos = new Vector3(backGroundSize * ((float)(i) / objmapsize) + transform.position.x - halfBackGroundSize,
+                                              backGroundSize * ((float)(j) / objmapsize) + transform.position.y - halfBackGroundSize,
+                                                0);
                     prefab = AssetDatabase.LoadAssetAtPath(pathPrefab, typeof(GameObject));
                     obj = (GameObject)Instantiate(prefab,
                         pos,
