@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using System;
 
 public class ChunkGenerator : MonoBehaviour {
 
@@ -15,7 +16,7 @@ public class ChunkGenerator : MonoBehaviour {
             HeightBound = new float[4];
             for (int i = 0; i < 4; ++i)
             {
-                HeightBound[i] = Random.value;
+                HeightBound[i] = UnityEngine.Random.value;
             }
         }
 
@@ -23,48 +24,58 @@ public class ChunkGenerator : MonoBehaviour {
         oGenerator = new objectsGenerator();      
         setObjects();
     }
-	
+
+    public void setHeightBound(float[] boundaryValues)
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            HeightBound[i] = boundaryValues[i];
+        }
+    }
+    public float[] getHeightBound()
+    {
+        return HeightBound;
+    }
+
     void setObjects()
     {
         int[][] objmap = oGenerator.GetObjectsMap(HeightBound);
+        Debug.Log(objmap.GetLength(0));
         for (int i =0; i<objmap.GetLength(0); i+=1)
-        {           
+        {
             for (int j=0; j<objmap.GetLength(0);j+=1)
-            {               
-                if (objmap[i][j] == 5) //magic 5
+            {
+                UnityEngine.Object prefab = null;
+                GameObject obj = null;
+                Vector3 pos = new Vector3(20.0f * ((float)(i) / 16) + transform.position.x, 20.0f * ((float)j / 16) + transform.position.y, 0);
+                switch (objmap[i][j])
                 {
-                    Object treeprefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/tree.prefab", typeof(GameObject));
-                    GameObject tree = (GameObject)Instantiate(treeprefab,
-                        new Vector3(10.0f * ((float)(i) / 16) + transform.position.x, 10.0f * ((float)j / 16) + transform.position.y, 0),
-                        transform.rotation);                    
-                    tree.transform.SetParent(transform);
-                                        
-                    //tree.transform.localPosition = GetComponent<PositionReferences>().GetNextPosition();
-                    //in work with it
+                    case 1:
+                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/water.prefab", typeof(GameObject));
+                        obj = (GameObject)Instantiate(prefab,
+                            pos,
+                            transform.rotation);
+                        break;
+                    case 2:
+                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/marsh.prefab", typeof(GameObject));
+                        obj = (GameObject)Instantiate(prefab,
+                            pos,
+                            transform.rotation);
+                        break;
+                    case 4:
+                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/shrub.prefab", typeof(GameObject));
+                        obj = (GameObject)Instantiate(prefab,
+                            pos,
+                            transform.rotation);
+                        break;
+                    case 5:
+                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/tree.prefab", typeof(GameObject));
+                        obj = (GameObject)Instantiate(prefab,
+                            pos,
+                            transform.rotation);
+                        break;
                 }
-                if (objmap[i][j] == 4) //magic 4
-                {
-                    Object shrubprefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/shrub.prefab", typeof(GameObject));
-                    GameObject shrub = (GameObject)Instantiate(shrubprefab,
-                        new Vector3(10.0f * ((float)i / 16) + transform.position.x, 10.0f * ((float)j / 16) + transform.position.y, 0),
-                        transform.rotation);
-                    shrub.transform.SetParent(transform);
-
-                    //tree.transform.localPosition = GetComponent<PositionReferences>().GetNextPosition();
-                    //in work with it
-                }
-
-                if (objmap[i][j] == 1) //magic 1
-                {
-                    Object waterprefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/water.prefab", typeof(GameObject));
-                    GameObject water = (GameObject)Instantiate(waterprefab,
-                        new Vector3(10.0f * ((float)i / 16) + transform.position.x, 10.0f * ((float)j / 16) + transform.position.y, 0),
-                        transform.rotation);
-                    water.transform.SetParent(transform);
-
-                    //tree.transform.localPosition = GetComponent<PositionReferences>().GetNextPosition();
-                    //in work with it
-                }
+                if(obj!=null) obj.transform.SetParent(this.transform);
             }   
         }
     }
@@ -100,13 +111,13 @@ public class objectsGenerator
 
     public objectsGenerator()
     {
-        size = 16;
+        size = 64;
         hb = new heightBorder();
         levels = 5;
         hb.size = levels;
         sizesize = (size * size);
         cols = new float[(int)sizesize];
-        GRAIN = 8;
+        GRAIN = 128;
     }
 
     //get objects map
@@ -169,7 +180,7 @@ public class objectsGenerator
     private float displace(float num)
     {
         float max = num / sizesize * GRAIN;
-        return Random.Range(-0.5f, 0.5f) * max;
+        return UnityEngine.Random.Range(-0.5f, 0.5f) * max;
     }
 
     //convert vec to square mat
@@ -191,19 +202,21 @@ public class objectsGenerator
     //convert float heoght map to int objects map
     private int[][] heightConversion(float[][] mat)
     {
+        int l = size/16;
         int increment=0;
-        int[][] matInt = new int[size][];
-        for (int i = 0; i < size; ++i)
+        int[][] matInt = new int[size/l][];
+        for (int i = 0; i < size-1; i+=l)
         {
-            matInt[i] = new int[size];
-            for (int j = 0; j < size; ++j)
+            matInt[i/l] = new int[size/l];
+            for (int j = 0; j < size-1; j+=l)
             {               
+                float control = (mat[i][j]+mat[i + 1][j] + mat[i + 1][j + 1] + mat[i][j + 1])/l;
                 increment = 0;
                 while (increment < hb.size)
                 {
-                    if (mat[i][j] > hb.data[increment++])
+                    if (control > hb.data[increment++])
                     {
-                        matInt[i][j] = increment;                              
+                        matInt[i/l][j/l] = increment;                              
                     }
                 }
             }

@@ -9,7 +9,7 @@ public class Backgroundcontroller : MonoBehaviour {
 	{	
 		
 		Vector2 Background_position = new Vector2 (COLD.transform.parent.gameObject.transform.position.x, COLD.transform.parent.gameObject.transform.position.y);
-		GameObject inst;
+		GameObject inst = null;
 					if (COLD.name == "Up") 
 					{	
 						COLD.gameObject.GetComponent<Collider2D> ().enabled = false; 
@@ -39,6 +39,11 @@ public class Backgroundcontroller : MonoBehaviour {
 						inst = Instantiate (Resources.Load<GameObject> ("Background"), Background_position, Quaternion.identity) as GameObject;
 						inst.transform.Find ("Left").gameObject.GetComponent<Collider2D> ().enabled = false; 
 					}
+                    ChunkGenerator ncg = inst.GetComponent<ChunkGenerator>();
+                    ChunkGenerator ocg = transform.GetComponent<ChunkGenerator>();
+                    //ncg.setHeightBound(ocg.getHeightBound());
+                    //inst.AddComponent<ChunkGenerator>(ncg);
+
 //		if (COLD.name == "Up-Right") 
 //		{	
 //			COLD.gameObject.GetComponent<Collider2D>().enabled = false; 
