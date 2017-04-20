@@ -7,7 +7,8 @@ using System;
 public class ChunkGenerator : MonoBehaviour {
 
     objectsGenerator oGenerator;
-
+    float backGroundSize;
+    float halfBackGroundSize;
     public float[] HeightBound;// { get; set; }
     // Use this for initialization
     void Start () {
@@ -19,7 +20,8 @@ public class ChunkGenerator : MonoBehaviour {
                 HeightBound[i] = UnityEngine.Random.value;
             }
         }
-
+        backGroundSize = 20.0f;
+        halfBackGroundSize = backGroundSize / 2;
         //intitialize        
         oGenerator = new objectsGenerator();      
         setObjects();
@@ -41,41 +43,40 @@ public class ChunkGenerator : MonoBehaviour {
     {
         int[][] objmap = oGenerator.GetObjectsMap(HeightBound);
         Debug.Log(objmap.GetLength(0));
-        for (int i =0; i<objmap.GetLength(0); i+=1)
+        int objmapsize = objmap.GetLength(0);
+        for (int i =0; i<objmapsize; ++i)
         {
-            for (int j=0; j<objmap.GetLength(0);j+=1)
+            for (int j=0; j< objmapsize; ++j)
             {
                 UnityEngine.Object prefab = null;
                 GameObject obj = null;
-                Vector3 pos = new Vector3(20.0f * ((float)(i) / 16) + transform.position.x, 20.0f * ((float)j / 16) + transform.position.y, 0);
+                String pathPrefab = null;
+                Vector3 pos = new Vector3(backGroundSize * ((float)(i) / objmapsize) + transform.position.x - halfBackGroundSize,
+                    backGroundSize * ((float)j / objmapsize) + transform.position.y - halfBackGroundSize, 
+                    0);
                 switch (objmap[i][j])
                 {
                     case 1:
-                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/water.prefab", typeof(GameObject));
-                        obj = (GameObject)Instantiate(prefab,
-                            pos,
-                            transform.rotation);
+                        pathPrefab = "Assets/Prefabs/water.prefab";
                         break;
                     case 2:
-                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/marsh.prefab", typeof(GameObject));
-                        obj = (GameObject)Instantiate(prefab,
-                            pos,
-                            transform.rotation);
+                        pathPrefab = "Assets/Prefabs/marsh.prefab";
                         break;
                     case 4:
-                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/shrub.prefab", typeof(GameObject));
-                        obj = (GameObject)Instantiate(prefab,
-                            pos,
-                            transform.rotation);
+                        pathPrefab = "Assets/Prefabs/shrub.prefab";
                         break;
                     case 5:
-                        prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/tree.prefab", typeof(GameObject));
-                        obj = (GameObject)Instantiate(prefab,
-                            pos,
-                            transform.rotation);
+                        pathPrefab = "Assets/Prefabs/tree.prefab";
                         break;
                 }
-                if(obj!=null) obj.transform.SetParent(this.transform);
+                if (pathPrefab != null)
+                {
+                    prefab = AssetDatabase.LoadAssetAtPath(pathPrefab, typeof(GameObject));
+                    obj = (GameObject)Instantiate(prefab,
+                        pos,
+                        transform.rotation);
+                    obj.transform.SetParent(this.transform);
+                }
             }   
         }
     }
