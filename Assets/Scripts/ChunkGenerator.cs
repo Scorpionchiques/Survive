@@ -44,7 +44,7 @@ public class ChunkGenerator : MonoBehaviour {
         setObjects();
     }
 
-    Vector3 displacement()
+    private Vector3 displacement()
     {
         return new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f),0);
     }
@@ -82,9 +82,7 @@ public class ChunkGenerator : MonoBehaviour {
                         break;
                     case MapObjects.rightCoastMarsh:
                         pathPrefab = "Assets/Prefabs/marsh.prefab";
-                        rot *= Quaternion.Euler(0, 90, 0);
-
-
+                        rot *= Quaternion.Euler(0, 0, 90);
                         break;
                 }
                 if (pathPrefab != null)
@@ -227,10 +225,10 @@ public class objectsGenerator
                         matInt[i/l][j/l] = (MapObjects)increment;                              
                     }
                 }
-                if(i/l>2&&j/l>2&& matInt[i / l - 1][j / l - 1]==MapObjects.marsh)
+                if (i / l > 2 && j / l > 2 && matInt[i / l - 1][j / l - 1] == MapObjects.marsh)
                     matInt[i / l - 1][j / l - 1] = chooseCoastOrientation(
-                    (int)matInt[i / l - 1][j / l - 2], (int)matInt[i / l - 1][j / l], (int)matInt[i / l][j / l - 1], (int)matInt[i / l - 2][j / l - 1],
-                     (int)matInt[i / l][j / l - 2], (int)matInt[i / l - 2][j / l - 2], (int)matInt[i / l][j / l], (int)matInt[i / l -  2][j / l]
+                    matInt[i / l - 1][j / l - 2], matInt[i / l - 1][j / l], matInt[i / l][j / l - 1], matInt[i / l - 2][j / l - 1],
+                     matInt[i / l][j / l - 2], matInt[i / l - 2][j / l - 2], matInt[i / l][j / l], matInt[i / l - 2][j / l]
                     );
             }
         }
@@ -238,17 +236,18 @@ public class objectsGenerator
         return matInt;
     }
 
-    private MapObjects chooseCoastOrientation(int l, int r, int bot, int up,
-                                              int lbot, int lup, int rbot, int rup)
+    private MapObjects chooseCoastOrientation(MapObjects l, MapObjects r, MapObjects bot, MapObjects up,
+                                              MapObjects lbot, MapObjects lup, MapObjects rbot, MapObjects rup)
     {
         MapObjects ret = MapObjects.marsh;
-        if (l != 1 && l != 2 && r == 1 || r == 2)
+        if (l != MapObjects.marsh && l != MapObjects.deepMarsh && r == MapObjects.deepMarsh || r == MapObjects.marsh)
         {
-            ret = MapObjects.leftbotCoastMarsh;
+            ret = MapObjects.leftCoastMarsh;
         }
-        if (l == 1 || l == 2  && r != 1 && r != 2)
+        if (l == MapObjects.marsh || l == MapObjects.deepMarsh && r != MapObjects.marsh && r != MapObjects.deepMarsh)
         {
-            ret = MapObjects.rightbotCoastMarsh;
+            ret = MapObjects.rightCoastMarsh;
+            Debug.Log("ok");
         }
         return ret;
     }
