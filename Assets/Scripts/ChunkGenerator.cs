@@ -41,7 +41,7 @@ public class ChunkGenerator : MonoBehaviour {
     {
         int[][] objmap = oGenerator.GetObjectsMap(HeightBound);
         int objmapsize = objmap.GetLength(0);
-        objmapsize = 32;
+        objmapsize = 16;
         for (int i =0; i<objmapsize; ++i)
         {
             for (int j=0; j< objmapsize; ++j)
@@ -66,8 +66,8 @@ public class ChunkGenerator : MonoBehaviour {
                 }
                 if (pathPrefab != null)
                 {
-                    Vector3 pos = new Vector3(backGroundSize * ((float)(i) / objmapsize) + transform.position.x - halfBackGroundSize,
-                                              backGroundSize * ((float)(j) / objmapsize) + transform.position.y - halfBackGroundSize,
+                    Vector3 pos = new Vector3(backGroundSize * ((float)(i) / objmapsize) + transform.position.x - halfBackGroundSize + UnityEngine.Random.Range(-0.5f, 0.5f),
+                                              backGroundSize * ((float)(j) / objmapsize) + transform.position.y - halfBackGroundSize + UnityEngine.Random.Range(-0.5f, 0.5f),
                                                 0);
                     prefab = AssetDatabase.LoadAssetAtPath(pathPrefab, typeof(GameObject));
                     obj = (GameObject)Instantiate(prefab,
@@ -202,7 +202,6 @@ public class objectsGenerator
     private int[][] heightConversion(float[][] mat)
     {
         int l = size/16;
-        l = 1;
         int increment=0;
         int[][] matInt = new int[size/l][];
         for (int i = 0; i < size-1; i+=l)
