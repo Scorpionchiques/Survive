@@ -41,6 +41,7 @@ public class ChunkGenerator : MonoBehaviour {
     {
         int[][] objmap = oGenerator.GetObjectsMap(HeightBound);
         int objmapsize = objmap.GetLength(0);
+        objmapsize = 32;
         for (int i =0; i<objmapsize; ++i)
         {
             for (int j=0; j< objmapsize; ++j)
@@ -201,6 +202,7 @@ public class objectsGenerator
     private int[][] heightConversion(float[][] mat)
     {
         int l = size/16;
+        l = 1;
         int increment=0;
         int[][] matInt = new int[size/l][];
         for (int i = 0; i < size-1; i+=l)
