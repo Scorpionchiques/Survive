@@ -4,6 +4,13 @@ using UnityEditor;
 using UnityEngine;
 using System;
 
+//in work with it
+public enum MapObjects
+{
+    tree = 5, shrub = 4, deepMarsh = 1, marsh = 2, leftCoastMarsh=-1, rightCoastMarsh=-2,
+    upCoastMarsh=-3, botCoastMarsh=-4, leftupCoastMarsh=-5, leftbotCoastMarsh=-6, rightupCoastMarsh=-7, rightbotCoastMarsh=-8, road = 3
+};
+
 public class ChunkGenerator : MonoBehaviour {
 
     objectsGenerator oGenerator;
@@ -37,42 +44,58 @@ public class ChunkGenerator : MonoBehaviour {
         setObjects();
     }
 
+    Vector3 displacement()
+    {
+        return new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f),0);
+    }
+
     void setObjects()
     {
-        int[][] objmap = oGenerator.GetObjectsMap(HeightBound);
+        MapObjects[][] objmap = oGenerator.GetObjectsMap(HeightBound);
         int objmapsize = objmap.GetLength(0);
         objmapsize = 16;
         for (int i =0; i<objmapsize; ++i)
-        {
+        {            
             for (int j=0; j< objmapsize; ++j)
             {
                 UnityEngine.Object prefab = null;
                 GameObject obj = null;
                 string pathPrefab = null;
+                Vector3 disp = new Vector3(0, 0, 0);
+                Quaternion rot = transform.rotation;
                 switch (objmap[i][j])
                 {
-                    case 1:
+                    case MapObjects.deepMarsh:
                         pathPrefab = "Assets/Prefabs/water.prefab";
                         break;
-                    case 2:
+                    case MapObjects.leftCoastMarsh:
+                    case MapObjects.marsh:
                         pathPrefab = "Assets/Prefabs/marsh.prefab";
                         break;
-                    case 4:
+                    case MapObjects.shrub:
                         pathPrefab = "Assets/Prefabs/shrub.prefab";
+                        disp = displacement();
                         break;
-                    case 5:
+                    case MapObjects.tree:
                         pathPrefab = "Assets/Prefabs/tree.prefab";
+                        disp = displacement();
+                        break;
+                    case MapObjects.rightCoastMarsh:
+                        pathPrefab = "Assets/Prefabs/marsh.prefab";
+                        rot *= Quaternion.Euler(0, 90, 0);
+
+
                         break;
                 }
                 if (pathPrefab != null)
                 {
-                    Vector3 pos = new Vector3(backGroundSize * ((float)(i) / objmapsize) + transform.position.x - halfBackGroundSize + UnityEngine.Random.Range(-0.5f, 0.5f),
-                                              backGroundSize * ((float)(j) / objmapsize) + transform.position.y - halfBackGroundSize + UnityEngine.Random.Range(-0.5f, 0.5f),
-                                                0);
+                    Vector3 pos = new Vector3(backGroundSize * ((float)(i) / objmapsize) + transform.position.x - halfBackGroundSize,
+                                              backGroundSize * ((float)(j) / objmapsize) + transform.position.y - halfBackGroundSize,
+                                                0) + disp;
                     prefab = AssetDatabase.LoadAssetAtPath(pathPrefab, typeof(GameObject));
                     obj = (GameObject)Instantiate(prefab,
                         pos,
-                        transform.rotation);
+                        rot );
                     obj.transform.SetParent(this.transform);
                 }
             }   
@@ -82,20 +105,6 @@ public class ChunkGenerator : MonoBehaviour {
     void Update () {
 		
 	}
-}
-
-//in work with it
-public class PositionReferences : MonoBehaviour
-{
-    public Transform[] positions;
-    private int index = 0;
-
-    public Vector3 GetNextPosition()
-    {
-        Vector3 result = positions[index].localPosition;
-        index = index + 1;
-        return result;
-    }
 }
 
 //object that generate object map throw using diaond square algorithm
@@ -120,7 +129,7 @@ public class objectsGenerator
     }
 
     //get objects map
-    public int[][] GetObjectsMap(float[] HeightBound)
+    public MapObjects[][] GetObjectsMap(float[] HeightBound)
     {
         return heightConversion(createHeightMap(size, size, HeightBound));
     }
@@ -199,14 +208,14 @@ public class objectsGenerator
     }
 
     //convert float heoght map to int objects map
-    private int[][] heightConversion(float[][] mat)
+    private MapObjects[][] heightConversion(float[][] mat)
     {
         int l = size/16;
         int increment=0;
-        int[][] matInt = new int[size/l][];
+        MapObjects[][] matInt = new MapObjects[size/l][];
         for (int i = 0; i < size-1; i+=l)
         {
-            matInt[i/l] = new int[size/l];
+            matInt[i/l] = new MapObjects[size/l];
             for (int j = 0; j < size-1; j+=l)
             {               
                 float control = (mat[i][j]+mat[i + 1][j] + mat[i + 1][j + 1] + mat[i][j + 1])/l;
@@ -215,13 +224,33 @@ public class objectsGenerator
                 {
                     if (control > hb.data[increment++])
                     {
-                        matInt[i/l][j/l] = increment;                              
+                        matInt[i/l][j/l] = (MapObjects)increment;                              
                     }
                 }
+                if(i/l>2&&j/l>2&& matInt[i / l - 1][j / l - 1]==MapObjects.marsh)
+                    matInt[i / l - 1][j / l - 1] = chooseCoastOrientation(
+                    (int)matInt[i / l - 1][j / l - 2], (int)matInt[i / l - 1][j / l], (int)matInt[i / l][j / l - 1], (int)matInt[i / l - 2][j / l - 1],
+                     (int)matInt[i / l][j / l - 2], (int)matInt[i / l - 2][j / l - 2], (int)matInt[i / l][j / l], (int)matInt[i / l -  2][j / l]
+                    );
             }
         }
         mat = null;
         return matInt;
+    }
+
+    private MapObjects chooseCoastOrientation(int l, int r, int bot, int up,
+                                              int lbot, int lup, int rbot, int rup)
+    {
+        MapObjects ret = MapObjects.marsh;
+        if (l != 1 && l != 2 && r == 1 || r == 2)
+        {
+            ret = MapObjects.leftbotCoastMarsh;
+        }
+        if (l == 1 || l == 2  && r != 1 && r != 2)
+        {
+            ret = MapObjects.rightbotCoastMarsh;
+        }
+        return ret;
     }
 
     //help tool-structure to carry out height to object conversion
