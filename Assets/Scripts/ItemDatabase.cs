@@ -5,15 +5,17 @@ using UnityEngine;
 using LitJson;
 
 public class ItemDatabase : MonoBehaviour {
+    
     private List<Item> database = new List<Item>();
     private JsonData itemsData;
 
     void Awake()
     {
-        itemsData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamingAssets/Items.json"));
+        itemsData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamingAssets/Items.json")); //get items from json file
         BuildItemDatabase();
     }
 
+    //Returns instance of an item by its ID
     public Item getItemByID(int id)
     {
         foreach (Item item in database)
@@ -21,6 +23,7 @@ public class ItemDatabase : MonoBehaviour {
         return null;
     }
 
+    //create list of items to interact with
     void BuildItemDatabase()
     {
         for (int i = 0; i < itemsData.Count; ++i)
@@ -30,6 +33,7 @@ public class ItemDatabase : MonoBehaviour {
     }
 }
 
+//Base Item class
 public class Item
 {
     public int ID { get; set; }
