@@ -26,13 +26,14 @@ public class ChunkGenerator : MonoBehaviour {
                 for (int i = 0; i < 4; ++i)
                 {
                     heightBound[i] = UnityEngine.Random.value;
-                }
+               }
+                Debug.Log("neok");
             }
             return heightBound;
         }
         set
         {
-
+            heightBound = value;
         }
     }
     // Use this for initialization
@@ -53,7 +54,6 @@ public class ChunkGenerator : MonoBehaviour {
     {
         MapObjects[][] objmap = oGenerator.GetObjectsMap(HeightBound);
         int objmapsize = objmap.GetLength(0);
-        objmapsize = 16;
         for (int i =0; i<objmapsize; ++i)
         {            
             for (int j=0; j< objmapsize; ++j)
@@ -61,7 +61,7 @@ public class ChunkGenerator : MonoBehaviour {
                 UnityEngine.Object prefab = null;
                 GameObject obj = null;
                 string pathPrefab = null;
-                Vector3 disp = new Vector3(0, 0, 0);
+                Vector3 disp = Vector3.zero;
                 Quaternion rot = transform.rotation;
                 switch (objmap[i][j])
                 {
@@ -154,15 +154,15 @@ public class objectsGenerator
         {
             //The four corners of the grid piece will be averaged and drawn as a single pixel.
             float c = (c1 + c2 + c3 + c4) / 4;
-            cols[(int)x + (int)y * size] = c;//computeColor(c); //TEST, TO USE CHNAGE COLOUR TO FLOAT
+            cols[(int)x + (int)y * size] = c;
         }
         else
         {
             float middle = (c1 + c2 + c3 + c4) / 4 + displace(newWidth + newHeight);      //Randomly displace the midpoint!
-            float edge1 = (c1 + c2) / 2; //Calculate the edges by averaging the two corners of each edge.
-            float edge2 = (c2 + c3) / 2;
-            float edge3 = (c3 + c4) / 2;
-            float edge4 = (c4 + c1) / 2;
+            float edge1 = (c1 + c2) / 2 + displace(newWidth + newHeight); //Calculate the edges by averaging the two corners of each edge.
+            float edge2 = (c2 + c3) / 2 + displace(newWidth + newHeight);
+            float edge3 = (c3 + c4) / 2 + displace(newWidth + newHeight);
+            float edge4 = (c4 + c1) / 2 + displace(newWidth + newHeight);
 
             //Make sure that the midpoint doesn't accidentally "randomly displaced" past the boundaries!
             if (middle < 0)
@@ -181,12 +181,12 @@ public class objectsGenerator
             divideGrid(x, y + newHeight, newWidth, newHeight, edge4, middle, edge3, c4);
         }
     }
-
+   
     //random displace for diamond square algorithm
     private float displace(float num)
     {
         float max = num / sizesize * GRAIN;
-        return UnityEngine.Random.Range(-0.5f, 0.5f) * max;
+        return UnityEngine.Random.Range(-0.1f, 0.5f) * max;
     }
 
     //convert vec to square mat
@@ -222,7 +222,7 @@ public class objectsGenerator
                 {
                     if (control > hb.data[increment++])
                     {
-                        matInt[i/l][j/l] = (MapObjects)increment;                              
+                        matInt[i/l][j/l] = (MapObjects)increment;                         
                     }
                 }
                 if (i / l > 2 && j / l > 2 && matInt[i / l - 1][j / l - 1] == MapObjects.marsh)
@@ -247,7 +247,6 @@ public class objectsGenerator
         if (l == MapObjects.marsh || l == MapObjects.deepMarsh && r != MapObjects.marsh && r != MapObjects.deepMarsh)
         {
             ret = MapObjects.rightCoastMarsh;
-            Debug.Log("ok");
         }
         return ret;
     }
