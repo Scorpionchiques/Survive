@@ -13,8 +13,7 @@ public class Backgroundcontroller : MonoBehaviour {
             GameObject instBG = null;
             Vector2 Background_position = new Vector2(COLD.transform.parent.gameObject.transform.position.x, COLD.transform.parent.gameObject.transform.position.y);
             COLD.gameObject.GetComponent<Collider2D>().enabled = false;
-            ChunkGenerator ocg = COLD.transform.parent.GetComponent<ChunkGenerator>();
-            instantiateBackground(COLD.name, Background_position, instBG, ocg.HeightBound);
+            instantiateBackground(COLD.name, Background_position, instBG, COLD.transform.parent.GetComponent<ChunkGenerator>().HeightBound);
         } 
 	}
 
@@ -50,8 +49,7 @@ public class Backgroundcontroller : MonoBehaviour {
         }
         instBG = Instantiate(Resources.Load<GameObject>("Background"), Background_position, Quaternion.identity) as GameObject;
         instBG.transform.Find(direction).gameObject.GetComponent<Collider2D>().enabled = false;
-        ChunkGenerator ncg = instBG.GetComponent<ChunkGenerator>();
-        ncg.HeightBound = newhb;
+        instBG.GetComponent<ChunkGenerator>().HeightBound = newhb;
     }
 
     void setNewHeight(float[] hb, float[] newhb, int o1, int o2, int n1, int n2)

@@ -47,7 +47,7 @@ public class ChunkGenerator : MonoBehaviour {
 
     private Vector3 displacement()
     {
-        return new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f),0);
+        return new Vector3(UnityEngine.Random.Range(-0.5f, 0.5f), UnityEngine.Random.Range(-0.5f, 0.5f), 0);
     }
 
     void setObjects()
