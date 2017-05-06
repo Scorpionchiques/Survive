@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Backgroundcontroller : MonoBehaviour {
 
@@ -65,9 +67,18 @@ public class Backgroundcontroller : MonoBehaviour {
 	 void Start () {
 		//Background_map [x_pos_map, y_pos_map] = 1;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public float speedo;
+    Rigidbody2D rb;
+
+    void FixedUpdate()
+    {
+        Vector2 input = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical")).normalized;
+        Vector3 movement = MoveDecider.direction(input.x, input.y);
+        transform.position += movement * speedo;        
+    }
+    // Update is called once per frame
+    void Update () {
 
 		
 	}
