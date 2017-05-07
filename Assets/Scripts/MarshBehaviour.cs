@@ -15,7 +15,7 @@ public class MarshBehaviour : MonoBehaviour {
         if (collision.name == "Player")
         {
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            character_move.speedo = 0.05f;
+            //character_move.speedo = 0.05f;
         }
     }
     
@@ -24,7 +24,7 @@ public class MarshBehaviour : MonoBehaviour {
         if (collision.name == "Player")
         {
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            character_move.speedo = 0.1f;
+            //character_move.speedo = 0.1f;
         }
     }
 

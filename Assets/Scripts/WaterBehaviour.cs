@@ -15,7 +15,7 @@ public class WaterBehaviour : MonoBehaviour {
         if (collision.name == "Player")
         {
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            character_move.speedo = 0.025f;
+            //haracter_move.speedo = 0.025f;
         }
     }
 
@@ -24,7 +24,7 @@ public class WaterBehaviour : MonoBehaviour {
         if (collision.name == "Player")
         {
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            character_move.speedo = 0.1f;
+            //character_move.speedo = 0.1f;
         }
     }
 
