@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     PlayerMovementController movement;
     InventoryController inventory;
 
-    public Event UseItem(Item);
+    //public Event UseItem(Item);
 
     Item itemInHands;
 
