@@ -17,8 +17,6 @@ public class ShrubBehaviour : MonoBehaviour {
     {
         if (collision.name == "Player")
         {
-            PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            character_move.speedo = 0.05f;
             var color = shrub_sprite.color;
             color.a = 0.5f;
             shrub_sprite.color = color;
@@ -29,7 +27,9 @@ public class ShrubBehaviour : MonoBehaviour {
     {
         if (collision.name == "Player")
         {
+            PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
             trigger_angle = new Vector3(0, 0, UnityEngine.Random.Range(-1.5f, 1.5f));
+            character_move.speedo = 0.05f;
             transform.Rotate(trigger_angle);
         }
     }

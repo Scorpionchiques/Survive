@@ -10,21 +10,21 @@ public class MarshBehaviour : MonoBehaviour {
     {
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.name == "Player")
         {
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            //character_move.speedo = 0.05f;
+
+            character_move.speedo = 0.05f;
         }
     }
-    
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.name == "Player")
         {
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            //character_move.speedo = 0.1f;
+            character_move.speedo = 0.1f;
         }
     }
 
