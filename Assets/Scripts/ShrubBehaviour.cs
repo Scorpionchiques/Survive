@@ -5,9 +5,11 @@ using UnityEngine;
 public class ShrubBehaviour : MonoBehaviour {
 
     Vector3 trigger_angle;
-	// Use this for initialization
-	void Start ()
+    SpriteRenderer shrub_sprite;
+    // Use this for initialization
+    void Start ()
     {
+        shrub_sprite = GetComponent<SpriteRenderer>();
         trigger_angle = Vector3.zero;
     }
 
@@ -16,7 +18,10 @@ public class ShrubBehaviour : MonoBehaviour {
         if (collision.name == "Player")
         {
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            character_move.speedo = 0.05f;                        
+            character_move.speedo = 0.05f;
+            var color = shrub_sprite.color;
+            color.a = 0.5f;
+            shrub_sprite.color = color;
         }
     }
 
@@ -33,6 +38,9 @@ public class ShrubBehaviour : MonoBehaviour {
     {
         if (collision.name == "Player")
         {
+            var color = shrub_sprite.color;
+            color.a = 1f;
+            shrub_sprite.color = color;
             PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
             character_move.speedo = 0.1f;
             transform.rotation = Quaternion.identity;
