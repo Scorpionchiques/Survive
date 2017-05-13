@@ -44,19 +44,19 @@ public class MoveDecider : MonoBehaviour {
         {
             if(signx > 0 && signy > 0)
             {
-                animator.SetInteger(par_name_direction, 5);// North-West 
+                animator.SetInteger(par_name_direction, 2);// 5 North-West 
             }
             if (signx > 0 && signy < 0)
             {
-                animator.SetInteger(par_name_direction, 7);//South-West
+                animator.SetInteger(par_name_direction, 0);//7 South-West
             }
             if (signx < 0 && signy > 0)
             {
-                animator.SetInteger(par_name_direction, 4);//North-East
+                animator.SetInteger(par_name_direction, 2);//4 North-East
             }
             if (signx < 0 && signy < 0)
             {
-                animator.SetInteger(par_name_direction, 6);//South-East 
+                animator.SetInteger(par_name_direction, 0);//6 South-East 
             }
         }
 

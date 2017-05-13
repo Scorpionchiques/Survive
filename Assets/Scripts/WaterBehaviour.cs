@@ -10,12 +10,12 @@ public class WaterBehaviour : MonoBehaviour {
     {
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.name == "Player")
         {
-            PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            //haracter_move.speedo = 0.025f;
+            Player character_move = collision.GetComponent<Player>();
+            character_move.speedo = 0.025f;
         }
     }
 
@@ -23,8 +23,8 @@ public class WaterBehaviour : MonoBehaviour {
     {
         if (collision.name == "Player")
         {
-            PlayerMovementController character_move = collision.GetComponent<PlayerMovementController>();
-            //character_move.speedo = 0.1f;
+            Player character_move = collision.GetComponent<Player>();
+            character_move.speedo = 0.1f;
         }
     }
 
