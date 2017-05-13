@@ -6,10 +6,12 @@ public class TreeBehaviour : MonoBehaviour
 {
     SpriteRenderer tree_sprite;
     Vector3 trigger_angle;
+    bool trigerred;
     // Use this for initialization
     void Start()
     {
         tree_sprite = GetComponent<SpriteRenderer>();
+        trigerred = false;
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class TreeBehaviour : MonoBehaviour
             var color = tree_sprite.color;
             color.a = 0.5f;
             tree_sprite.color = color;
+            trigerred = true;
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -42,6 +45,22 @@ public class TreeBehaviour : MonoBehaviour
             var color = tree_sprite.color;
             color.a = 1f;
             tree_sprite.color = color;
+            trigerred = false;
+        }
+    }
+    private void OnMouseDown()
+    {
+        if (trigerred == true)
+        {
+            var sprite = GetComponent<SpriteRenderer>();
+            var colliders = GetComponents<Collider2D>();
+
+            foreach (var component in colliders)
+            {
+                Destroy(component);
+            }
+            Destroy(sprite);
+            Destroy(this);
         }
     }
 }
