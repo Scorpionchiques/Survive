@@ -20,15 +20,6 @@ public class PlayerMovementController
         Vector2 input = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical")).normalized;
 
         Vector3 movement = MoveDecider.direction(input.x, input.y);
-        MoveDecider.SetAnimationDirection(animator_player, input.x, input.y);
-        if (movement.Equals(Vector3.zero))
-        {
-            animator_player.StartPlayback();
-        }
-        else
-        {
-            animator_player.StopPlayback();
-        }
 
         rigidBody_player.velocity = speedo * (movement.normalized);
         rigidBody_player.MovePosition(rigidBody_player.position + rigidBody_player.velocity);

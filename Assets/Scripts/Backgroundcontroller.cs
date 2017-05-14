@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEditor;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Backgroundcontroller : MonoBehaviour {
@@ -49,7 +50,9 @@ public class Backgroundcontroller : MonoBehaviour {
                 setNewHeight(hb, newhb, 1, 2, 0, 3);
                 break;
         }
-        instBG = Instantiate(Resources.Load<GameObject>("Background"), Background_position, Quaternion.identity) as GameObject;
+        UnityEngine.Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Background.prefab", typeof(GameObject));
+        instBG = (GameObject)Instantiate(prefab, Background_position, Quaternion.identity);
+        instBG.transform.SetParent(this.transform.parent.transform.parent);
         instBG.transform.Find(direction).gameObject.GetComponent<Collider2D>().enabled = false;
         instBG.GetComponent<ChunkGenerator>().HeightBound = newhb;
     }

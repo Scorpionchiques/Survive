@@ -6,11 +6,14 @@ public class ShrubBehaviour : MonoBehaviour {
 
     Vector3 trigger_angle;
     SpriteRenderer shrub_sprite;
+    bool trigerred;
     // Use this for initialization
     void Start ()
     {
         shrub_sprite = GetComponent<SpriteRenderer>();
         trigger_angle = Vector3.zero;
+        trigerred = false;
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -19,6 +22,7 @@ public class ShrubBehaviour : MonoBehaviour {
         {
             var color = shrub_sprite.color;
             color.a = 0.5f;
+            trigerred = true;
             shrub_sprite.color = color;
         }
     }
@@ -41,12 +45,28 @@ public class ShrubBehaviour : MonoBehaviour {
             var color = shrub_sprite.color;
             color.a = 1f;
             shrub_sprite.color = color;
+            trigerred = false;
             Player character_move = collision.GetComponent<Player>();
             character_move.speedo = 0.1f;
             transform.rotation = Quaternion.identity;
         }
     }
 
+    private void OnMouseDown()
+    {
+        if (trigerred == true)
+        {
+            var p = transform.parent.parent.GetComponentInChildren<Player>();
+            p.ClickOn += Response;
+            p.ClickedObject();
+        }
+    }
+
+    private void Response(Item clickedItem, Player p)
+    {
+        p.ClickOn -= Response;
+        Debug.Log("response from shrub");
+    }
     // Update is called once per frame
     void Update ()
     {
