@@ -54,11 +54,7 @@ public class Player : MonoBehaviour
         staminaBarControl.handleBar(stamina, maxStamina);
         stamina -= 0.005f;
     }
-   
-    private void OnMouseDown()
-    {
-        ClickOn(itemInHands, this);
-    }
+
     public void ClickedObject()
     {
         ClickOn(itemInHands, this);
