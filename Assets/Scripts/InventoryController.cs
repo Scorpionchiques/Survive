@@ -33,6 +33,7 @@ public class InventoryController : MonoBehaviour {
 
         gameObject.SetActive(false);
 
+        AddItem(0, 5);
 
         //Testing AddItem and RemoveItem functions
         /*
