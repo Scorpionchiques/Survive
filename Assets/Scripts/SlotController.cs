@@ -8,9 +8,9 @@ public class SlotController : MonoBehaviour {
 	public Button delete, load;
 
 	void Start () {
-        GetComponent<Button>().onClick.AddListener(slotControl);
-        delete.GetComponent<Button>().onClick.AddListener(slotDelete);
-        load.GetComponent<Button>().onClick.AddListener(slotLoad);
+        //GetComponent<Button>().onClick.AddListener(slotControl);
+        //delete.GetComponent<Button>().onClick.AddListener(slotDelete);
+        //load.GetComponent<Button>().onClick.AddListener(slotLoad);
 	}
 
     private void slotControl()
@@ -74,4 +74,8 @@ public class SlotController : MonoBehaviour {
         return true;
     }
 
+    private void OnMouseDown()
+    {
+        Debug.Log("slot pressed");
+    }
 }

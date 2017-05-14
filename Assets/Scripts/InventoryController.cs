@@ -121,7 +121,6 @@ public class InventoryController : MonoBehaviour {
             if (slots[i].isEmpty) return i;
         return -1;
     }
-
 }
 
 //Contains information about inventory slot
