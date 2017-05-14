@@ -2,16 +2,18 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SlotController : MonoBehaviour {
+public class SaveLoadSlotController : MonoBehaviour
+{
 
     public GameObject controls;
-	public Button delete, load;
+    public Button delete, load;
 
-	void Start () {
+    void Start()
+    {
         GetComponent<Button>().onClick.AddListener(slotControl);
         delete.GetComponent<Button>().onClick.AddListener(slotDelete);
         load.GetComponent<Button>().onClick.AddListener(slotLoad);
-	}
+    }
 
     private void slotControl()
     {
@@ -19,7 +21,8 @@ public class SlotController : MonoBehaviour {
 
         if (PlayerPrefs.GetString(name) == "EMPTY")
         {
-            if (newGameConfirmation()) {
+            if (newGameConfirmation())
+            {
                 PlayerPrefs.SetString(name, "USED");
                 SceneManager.LoadScene("Game");
             }
@@ -73,5 +76,4 @@ public class SlotController : MonoBehaviour {
     {
         return true;
     }
-
 }

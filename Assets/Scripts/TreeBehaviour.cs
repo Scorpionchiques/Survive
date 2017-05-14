@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeBehaviour : MonoBehaviour
+public class TreeBehaviour : MapObject
 {
-    SpriteRenderer tree_sprite;
     Vector3 trigger_angle;
-    bool trigerred;
     // Use this for initialization
     void Start()
     {
-        tree_sprite = GetComponent<SpriteRenderer>();
+        o_sprite = GetComponent<SpriteRenderer>();
         trigerred = false;
+        o_type = MapObjects.tree;
     }
 
     // Update is called once per frame
@@ -24,9 +23,9 @@ public class TreeBehaviour : MonoBehaviour
     {
         if (collision.name == "Player")
         {
-            var color = tree_sprite.color;
+            var color = o_sprite.color;
             color.a = 0.5f;
-            tree_sprite.color = color;
+            o_sprite.color = color;
             trigerred = true;            
         }
     }
@@ -43,9 +42,9 @@ public class TreeBehaviour : MonoBehaviour
     {
         if (collision.name == "Player")
         {
-            var color = tree_sprite.color;
+            var color = o_sprite.color;
             color.a = 1f;
-            tree_sprite.color = color;
+            o_sprite.color = color;
             trigerred = false;
         }
     }

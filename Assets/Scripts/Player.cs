@@ -52,12 +52,9 @@ public class Player : MonoBehaviour
         player_animation.move(animator_player);
         healthBarControl.handleBar(health, maxHealth);
         staminaBarControl.handleBar(stamina, maxStamina);
+        stamina -= 0.005f;
     }
-   
-    private void OnMouseDown()
-    {
-        ClickOn(itemInHands, this);
-    }
+
     public void ClickedObject()
     {
         ClickOn(itemInHands, this);
