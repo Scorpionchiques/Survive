@@ -4,12 +4,16 @@
         "title": "Steel Gloves",
         "stackable": true,
         "maxStack": 10,
-        "slug":  "steel_gloves"
+        "slug": "steel_gloves",
+        "description": "Gloves made out of steel. Wowser.",
     },
     {
         "id": 1,
         "title": "Bronze Sword",
         "stackable": false,
-        "slug": "bronze_sword"
+        "slug": "bronze_sword",
+        "description": "Sharp and fragile.",
+        "type": "weapon",
+        "damage": 10
     }
 ]
