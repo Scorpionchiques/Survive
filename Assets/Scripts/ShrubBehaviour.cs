@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShrubBehaviour : MapObject
-{
+public class ShrubBehaviour : MonoBehaviour {
 
     Vector3 trigger_angle;
+    SpriteRenderer shrub_sprite;
+    bool trigerred;
     // Use this for initialization
     void Start ()
     {
-        o_sprite = GetComponent<SpriteRenderer>();
+        shrub_sprite = GetComponent<SpriteRenderer>();
         trigger_angle = Vector3.zero;
         trigerred = false;
-        o_type = MapObjects.shrub;
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Player")
         {
-            var color = o_sprite.color;
+            var color = shrub_sprite.color;
             color.a = 0.5f;
             trigerred = true;
-            o_sprite.color = color;
+            shrub_sprite.color = color;
         }
     }
 
@@ -41,9 +42,9 @@ public class ShrubBehaviour : MapObject
     {
         if (collision.name == "Player")
         {
-            var color = o_sprite.color;
+            var color = shrub_sprite.color;
             color.a = 1f;
-            o_sprite.color = color;
+            shrub_sprite.color = color;
             trigerred = false;
             Player character_move = collision.GetComponent<Player>();
             character_move.speedo = 0.1f;
