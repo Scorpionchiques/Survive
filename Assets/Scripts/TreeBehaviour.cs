@@ -19,6 +19,7 @@ public class TreeBehaviour : MonoBehaviour
     {
 
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Player")
@@ -26,7 +27,7 @@ public class TreeBehaviour : MonoBehaviour
             var color = tree_sprite.color;
             color.a = 0.5f;
             tree_sprite.color = color;
-            trigerred = true;
+            trigerred = true;            
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -48,13 +49,25 @@ public class TreeBehaviour : MonoBehaviour
             trigerred = false;
         }
     }
+
     private void OnMouseDown()
     {
         if (trigerred == true)
         {
+            var p = transform.parent.parent.GetComponentInChildren<Player>();
+            p.ClickOn += Response;
+            p.ClickedObject();
+        }
+    }
+
+    private void Response(Item clickedItem, Player p)
+    {
+        Debug.Log("response from tree");
+        if (trigerred == true)
+        {
             var sprite = GetComponent<SpriteRenderer>();
             var colliders = GetComponents<Collider2D>();
-
+            p.ClickOn -= Response;
             foreach (var component in colliders)
             {
                 Destroy(component);
