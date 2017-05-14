@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class InventoryController : MonoBehaviour {
 
     ItemDatabase database;
-    public GameObject slotPanel;
-    public GameObject inventorySlot;
-    public GameObject inventoryItem;
+    public GameObject slotPanel; // panel that contains all inventory slots
+    public GameObject inventorySlot; // slot prefab
+    public GameObject inventoryItem; // item prefab
+    public GameObject infoPanel; // Panel to display info about an item
 
     int slotAmount;
     public List<Item> items = new List<Item>();
@@ -17,6 +18,10 @@ public class InventoryController : MonoBehaviour {
     
     void Start()
     {
+        //Static info panel for all slots to refer to
+        InfoPanel panel = new InfoPanel(infoPanel);
+        InventorySlotConroller.infoPanel = panel;
+
         //Get access to item database
         database = GetComponent<ItemDatabase>();
 
@@ -32,8 +37,10 @@ public class InventoryController : MonoBehaviour {
         }
 
         gameObject.SetActive(false);
+        infoPanel.SetActive(false);
 
         AddItem(0, 5);
+        AddItem(1, 2);
 
         //Testing AddItem and RemoveItem functions
         /*
@@ -66,17 +73,17 @@ public class InventoryController : MonoBehaviour {
     {
         Item itemToAdd = database.getItemByID(id);
 
-        Debug.Log("Item: " + itemToAdd.Title + " | Count: " + count);
+        Debug.Log("Item: " + itemToAdd.title + " | Count: " + count);
 
         //If item is stackable things are complicated
-        if (itemToAdd.Stackable == true)
+        if (itemToAdd.stackable == true)
         {
             //Look for slots with the same stackable item
             for (int i = 0; i < slotAmount; i++)
             {
                 if (!slots[i].isEmpty)
                 {
-                    if (slots[i].Item.ID == id && slots[i].Count < slots[i].Item.MaxStack)
+                    if (slots[i].item.id == id && slots[i].count < slots[i].item.maxStack)
                     {
                         count = slots[i].addToSlot(count);
                         if (count == 0) break;
@@ -121,83 +128,4 @@ public class InventoryController : MonoBehaviour {
             if (slots[i].isEmpty) return i;
         return -1;
     }
-}
-
-//Contains information about inventory slot
-public class Slot
-{
-    public GameObject SlotObject { get; set; }
-    public GameObject ItemObject { get; set; }
-    public bool isEmpty { get; set; }
-    public Item Item { get; set; }
-    public int Count { get; set; }
-    public Text CountText { get; set; }
-
-    public Slot(GameObject slotObject, GameObject itemObject = null)
-    {
-        this.SlotObject = slotObject;
-        this.isEmpty = true;
-        this.Item = null;
-        this.CountText = null;
-        this.Count = 0;
-    }
-
-    //Returns the amount of items that didn't fit in that slot
-    public int setItem(Item itemToSet, GameObject itemObject, int count = 1)
-    {
-        if (count <= 0) throw new Exception("Invalid count value");
-        if (!this.isEmpty) throw new Exception("Trying to set item in filled slot");
-        
-        this.isEmpty = false;
-        this.Item = itemToSet;
-        this.ItemObject = itemObject;
-        this.ItemObject.transform.SetParent(this.SlotObject.transform, false);
-        this.ItemObject.GetComponent<Image>().sprite = this.Item.Sprite;
-        this.CountText = this.ItemObject.transform.GetChild(0).GetComponent<Text>();
-
-        //Evaluating amount of items to return
-        this.Count = (count > this.Item.MaxStack) ? this.Item.MaxStack : count;
-        updateCountText();
-        return count - this.Count;
-    }
-
-    //Returns the amount of items that didn't fit in that slot
-    public int addToSlot(int count)
-    {
-        if (!this.Item.Stackable) throw new Exception("Trying to add to slot with unstackable item");
-        if (count <= 0) throw new Exception("Invalid count value");
-        
-        if (count + this.Count > this.Item.MaxStack)
-        {
-            this.Count = this.Item.MaxStack;
-            updateCountText();
-            return count + this.Count - this.Item.MaxStack;
-        }
-        else
-        {
-            this.Count = count + this.Count;
-            updateCountText();
-            return 0;
-        }
-    }
-
-    private void updateCountText()
-    {
-        if (this.Item.Stackable)
-            this.CountText.text = this.Count.ToString();
-        else
-            this.CountText.text = "";
-    }
-
-    public void RemoveItem()
-    {
-        if (this.isEmpty) throw new Exception("Trying to remove item from empty slot");
-
-        this.isEmpty = true;
-        this.Count = 0;
-        this.Item = null;
-        UnityEngine.Object.Destroy(this.CountText);
-        UnityEngine.Object.Destroy(this.ItemObject);
-    }
-  
 }

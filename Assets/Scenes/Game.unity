@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 160074743}
   - component: {fileID: 160074742}
   m_Layer: 0
-  m_Name: ParametersText
+  m_Name: Parameters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,7 +454,6 @@ GameObject:
   - component: {fileID: 381434712}
   - component: {fileID: 381434714}
   - component: {fileID: 381434713}
-  - component: {fileID: 381434715}
   m_Layer: 0
   m_Name: StaminaBar
   m_TagString: Untagged
@@ -514,17 +513,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381434711}
---- !u!114 &381434715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 381434711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd7326c1e91be4b4a99320ad371575e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &459421828
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +865,7 @@ MonoBehaviour:
     type: 2}
   inventoryItem: {fileID: 1452268693398508, guid: b2951d82bef04694cb3a2eae3e76981d,
     type: 2}
+  infoPanel: {fileID: 7635574}
 --- !u!1 &587680224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,7 +2085,6 @@ GameObject:
   - component: {fileID: 1727250776}
   - component: {fileID: 1727250778}
   - component: {fileID: 1727250777}
-  - component: {fileID: 1727250779}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2156,17 +2144,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1727250775}
---- !u!114 &1727250779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1727250775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd7326c1e91be4b4a99320ad371575e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1750422372 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4275302924343036, guid: be2f7baefa2188f4caaaf0e7cf152f1a,

@@ -19,7 +19,7 @@ public class ItemDatabase : MonoBehaviour {
     public Item getItemByID(int id)
     {
         foreach (Item item in database)
-            if (item.ID == id) return item;
+            if (item.id == id) return item;
         return null;
     }
 
@@ -36,21 +36,23 @@ public class ItemDatabase : MonoBehaviour {
 //Base Item class
 public class Item
 {
-    public int ID { get; set; }
-    public string Title { get; set; }
-    public bool Stackable { get; set; }
-    public int MaxStack { get; set; }
-    public string Slug { get; set; }
-    public Sprite Sprite { get; set; }
+    public int id;
+    public string title;
+    public bool stackable;
+    public int maxStack;
+    public string description;
+    public string slug;
+    public Sprite sprite;
 
     public Item(JsonData itemData)
     {
-        this.ID = (int)itemData["id"];
-        this.Title = itemData["title"].ToString();
-        this.Stackable = (bool)itemData["stackable"];
-        this.MaxStack = this.Stackable ? (int)itemData["maxStack"] : 1;
-        this.Slug = itemData["slug"].ToString();
-        this.Sprite = Resources.Load<Sprite>("Sprites/Items/" + this.Slug);
+        this.id = (int)itemData["id"];
+        this.title = itemData["title"].ToString();
+        this.stackable = (bool)itemData["stackable"];
+        this.maxStack = this.stackable ? (int)itemData["maxStack"] : 1;
+        this.description = itemData["description"].ToString();
+        this.slug = itemData["slug"].ToString();
+        this.sprite = Resources.Load<Sprite>("Sprites/Items/" + this.slug);
     }
 
 }
