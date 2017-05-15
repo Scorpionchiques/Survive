@@ -7,19 +7,19 @@ using System;
 
 public class AnimatorController {
 
-    public void move(Animator animator_player)
+    public void move(Animator animatorPlayer)
     {
         Vector2 input = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical")).normalized;
         Vector3 movement = MoveDecider.direction(input.x, input.y);
 
-        AnimatorMoveDecider.SetAnimationDirection(animator_player, input.x, input.y);
+        AnimatorMoveDecider.SetAnimationDirection(animatorPlayer, input.x, input.y);
         if (movement.Equals(Vector3.zero))
         {
-            animator_player.StartPlayback();
+            animatorPlayer.StartPlayback();
         }
         else
         {
-            animator_player.StopPlayback();
+            animatorPlayer.StopPlayback();
         }
     }
 }

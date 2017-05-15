@@ -8,9 +8,9 @@ public class TreeBehaviour : MapObject
     // Use this for initialization
     void Start()
     {
-        o_sprite = GetComponent<SpriteRenderer>();
+        MapObjectSprite = GetComponent<SpriteRenderer>();
         trigerred = false;
-        o_type = MapObjects.tree;
+        MapObjectType = MapObjects.tree;
     }
 
     // Update is called once per frame
@@ -23,9 +23,9 @@ public class TreeBehaviour : MapObject
     {
         if (collision.name == "Player")
         {
-            var color = o_sprite.color;
+            var color = MapObjectSprite.color;
             color.a = 0.5f;
-            o_sprite.color = color;
+            MapObjectSprite.color = color;
             trigerred = true;            
         }
     }
@@ -42,9 +42,9 @@ public class TreeBehaviour : MapObject
     {
         if (collision.name == "Player")
         {
-            var color = o_sprite.color;
+            var color = MapObjectSprite.color;
             color.a = 1f;
-            o_sprite.color = color;
+            MapObjectSprite.color = color;
             trigerred = false;
         }
     }

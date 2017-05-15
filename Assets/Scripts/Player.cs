@@ -18,11 +18,11 @@ public class Player : MonoBehaviour
     public GameObject healthBar;
     public GameObject staminaBar;
 
-    Rigidbody2D rigidBody_player;
-    private Animator animator_player;
+    Rigidbody2D rigidBodyPlayer;
+    private Animator animatorPlayer;
 
     PlayerMovementController movement;
-    AnimatorController player_animation;
+    AnimatorController playerAnimator;
     InventoryController inventory;
 
     BarController healthBarControl;
@@ -36,10 +36,10 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        rigidBody_player = GetComponent<Rigidbody2D>();
-        animator_player = GetComponent<Animator>();
+        rigidBodyPlayer = GetComponent<Rigidbody2D>();
+        animatorPlayer = GetComponent<Animator>();
         movement = new PlayerMovementController();
-        player_animation = new AnimatorController();
+        playerAnimator = new AnimatorController();
         inventory = new InventoryController();
         itemInHands = null;
         healthBarControl = new BarController(healthBar);
@@ -48,8 +48,8 @@ public class Player : MonoBehaviour
     
     void FixedUpdate()
     {
-        movement.move(rigidBody_player, animator_player, speedo);
-        player_animation.move(animator_player);
+        movement.move(rigidBodyPlayer, animatorPlayer, speedo);
+        playerAnimator.move(animatorPlayer);
         healthBarControl.handleBar(health, maxHealth);
         staminaBarControl.handleBar(stamina, maxStamina);
         stamina -= 0.005f;

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MapObject : MonoBehaviour {
 
-    protected SpriteRenderer o_sprite;
+    protected SpriteRenderer MapObjectSprite;
     protected bool trigerred;
-    protected MapObjects o_type;
+    protected MapObjects MapObjectType;
     // Use this for initialization
     void Start () {
 

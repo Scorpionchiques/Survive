@@ -9,20 +9,20 @@ public class ShrubBehaviour : MapObject
     // Use this for initialization
     void Start ()
     {
-        o_sprite = GetComponent<SpriteRenderer>();
+        MapObjectSprite = GetComponent<SpriteRenderer>();
         trigger_angle = Vector3.zero;
         trigerred = false;
-        o_type = MapObjects.shrub;
+        MapObjectType = MapObjects.shrub;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Player")
         {
-            var color = o_sprite.color;
+            var color = MapObjectSprite.color;
             color.a = 0.5f;
             trigerred = true;
-            o_sprite.color = color;
+            MapObjectSprite.color = color;
         }
     }
 
@@ -41,9 +41,9 @@ public class ShrubBehaviour : MapObject
     {
         if (collision.name == "Player")
         {
-            var color = o_sprite.color;
+            var color = MapObjectSprite.color;
             color.a = 1f;
-            o_sprite.color = color;
+            MapObjectSprite.color = color;
             trigerred = false;
             Player character_move = collision.GetComponent<Player>();
             character_move.speedo = 0.1f;
