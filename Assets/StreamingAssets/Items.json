@@ -16,5 +16,14 @@
         "description": "Sharp and fragile.",
         "type": "weapon",
         "damage": 10
+    },
+    {
+        "id": 2,
+        "title": "Wood",
+        "stackable": true,
+        "maxStack": 10,
+        "slug": "wood",
+        "description": "Wood.",
+        "type": "material"
     }
 ]

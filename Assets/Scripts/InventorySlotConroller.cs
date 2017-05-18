@@ -15,8 +15,12 @@ public class InventorySlotConroller: MonoBehaviour {
 
     private void OnMouseDown()
     {
-        infoPanel.panel.SetActive(true);
-        infoPanel.setValues(slot.item);
+        //Check if slot is not empty
+        if (slot.item != null)
+        {
+            infoPanel.panel.SetActive(true); //Show info panel
+            infoPanel.setValues(slot.item); //Set info panel to represent selected item
+        }
     }
 
 }

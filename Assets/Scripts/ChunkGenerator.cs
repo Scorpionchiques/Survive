@@ -186,7 +186,7 @@ public class objectsGenerator
     private float displace(float num)
     {
         float max = num / sizesize * GRAIN;
-        return UnityEngine.Random.Range(-0.5f, 0.5f) * max;
+        return UnityEngine.Random.Range(-0.01f, 0.4f) * max;
     }
 
     //convert vec to square mat

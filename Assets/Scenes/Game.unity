@@ -1924,6 +1924,21 @@ Prefab:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 381434711}
+    - target: {fileID: 114054834282105510, guid: bafb898e00af6f94f88c026f1f1de018,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1818977084}
+    - target: {fileID: 114054834282105510, guid: bafb898e00af6f94f88c026f1f1de018,
+        type: 2}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 577894280}
+    - target: {fileID: 114054834282105510, guid: bafb898e00af6f94f88c026f1f1de018,
+        type: 2}
+      propertyPath: inventoryPanel
+      value: 
+      objectReference: {fileID: 577894275}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bafb898e00af6f94f88c026f1f1de018, type: 2}
   m_IsPrefabParent: 0
@@ -2529,6 +2544,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7635574}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null

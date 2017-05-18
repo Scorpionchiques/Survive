@@ -23,12 +23,16 @@ public class Player : MonoBehaviour
 
     PlayerMovementController movement;
     AnimatorController player_animation;
+    public GameObject inventoryPanel;
     InventoryController inventory;
 
     BarController healthBarControl;
     BarController staminaBarControl; 
 
     Item itemInHands;
+
+    public GameObject canvas;
+    public Messenger messenger;
 
     public delegate void ResponseFromObject(Item i, Player p);
 
@@ -40,10 +44,12 @@ public class Player : MonoBehaviour
         animator_player = GetComponent<Animator>();
         movement = new PlayerMovementController();
         player_animation = new AnimatorController();
-        inventory = new InventoryController();
+        inventory = inventoryPanel.GetComponent<InventoryController>();
         itemInHands = null;
         healthBarControl = new BarController(healthBar);
         staminaBarControl = new BarController(staminaBar);
+
+        messenger = new Messenger(canvas);
     }
     
     void FixedUpdate()
@@ -59,4 +65,10 @@ public class Player : MonoBehaviour
     {
         ClickOn(itemInHands, this);
     }
+
+    public void give(int id, int count)
+    {
+        inventory.AddItem(id, count);
+    }
+
 }

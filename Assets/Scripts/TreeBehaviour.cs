@@ -64,11 +64,14 @@ public class TreeBehaviour : MapObject
         Debug.Log("response from tree");
         if (trigerred == true)
         {
+            p.messenger.createMessage("+1 wood");
+            p.give(2,1);
+
             var sprite = GetComponent<SpriteRenderer>();
             var colliders = GetComponents<Collider2D>();
             p.ClickOn -= Response;
             foreach (var component in colliders)
-            {
+            {                
                 Destroy(component);
             }
             Destroy(sprite);

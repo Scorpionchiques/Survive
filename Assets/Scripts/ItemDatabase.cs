@@ -12,7 +12,8 @@ public class ItemDatabase : MonoBehaviour {
     void Awake()
     {
         itemsData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamingAssets/Items.json")); //get items from json file
-        BuildItemDatabase();
+        BuildItemDatabase(itemsData);
+        Debug.Log(getItemByID(2));
     }
 
     //Returns instance of an item by its ID
@@ -24,7 +25,7 @@ public class ItemDatabase : MonoBehaviour {
     }
 
     //create list of items to interact with
-    void BuildItemDatabase()
+    void BuildItemDatabase(JsonData itemsData)
     {
         for (int i = 0; i < itemsData.Count; ++i)
         {
@@ -53,6 +54,7 @@ public class Item
         this.description = itemData["description"].ToString();
         this.slug = itemData["slug"].ToString();
         this.sprite = Resources.Load<Sprite>("Sprites/Items/" + this.slug);
+        Debug.Log(id + " " + slug);
     }
 
 }

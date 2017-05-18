@@ -41,7 +41,7 @@ public class InventoryController : MonoBehaviour {
 
         AddItem(0, 5);
         AddItem(1, 2);
-
+        AddItem(2, 10);
         //Testing AddItem and RemoveItem functions
         /*
         System.Random rand = new System.Random();
