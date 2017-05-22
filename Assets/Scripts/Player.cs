@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float maxStamina;
 
+    public void changeHP(float suka)
+    {
+        health += suka;
+    }
     public float speedo;
     public GameObject healthBar;
     public GameObject staminaBar;

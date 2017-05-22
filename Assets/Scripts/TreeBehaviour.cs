@@ -78,4 +78,15 @@ public class TreeBehaviour : MapObject
             Destroy(this);
         }
     }
+    public void destroy()
+    {
+        var sprite = GetComponent<SpriteRenderer>();
+        var colliders = GetComponents<Collider2D>();
+        foreach (var component in colliders)
+        {
+            Destroy(component);
+        }
+        Destroy(sprite);
+        Destroy(this);
+    }
 }
