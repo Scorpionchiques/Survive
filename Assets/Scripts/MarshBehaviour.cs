@@ -16,7 +16,7 @@ public class MarshBehaviour : MonoBehaviour {
         {
             Player character_move = collision.GetComponent<Player>();
 
-            character_move.speedo = 0.05f;
+            //character_move.speedo = 0.05f;
         }
     }
     void OnTriggerExit2D(Collider2D collision)
@@ -24,7 +24,7 @@ public class MarshBehaviour : MonoBehaviour {
         if (collision.name == "Player")
         {
             Player character_move = collision.GetComponent<Player>();
-            character_move.speedo = 0.1f;
+            //character_move.speedo = 0.1f;
         }
     }
 

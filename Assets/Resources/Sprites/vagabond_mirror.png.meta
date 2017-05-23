@@ -1,0 +1,1478 @@
+fileFormatVersion: 2
+guid: 6e01fa1d534d00c4cab82fdfaee11140
+timeCreated: 1495539838
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: vagabond_mirror_0
+    21300002: vagabond_mirror_1
+    21300004: vagabond_mirror_2
+    21300006: vagabond_mirror_3
+    21300008: vagabond_mirror_4
+    21300010: vagabond_mirror_5
+    21300012: vagabond_mirror_6
+    21300014: vagabond_mirror_7
+    21300016: vagabond_mirror_8
+    21300018: vagabond_mirror_9
+    21300020: vagabond_mirror_10
+    21300022: vagabond_mirror_11
+    21300024: vagabond_mirror_12
+    21300026: vagabond_mirror_13
+    21300028: vagabond_mirror_14
+    21300030: vagabond_mirror_15
+    21300032: vagabond_mirror_16
+    21300034: vagabond_mirror_17
+    21300036: vagabond_mirror_18
+    21300038: vagabond_mirror_19
+    21300040: vagabond_mirror_20
+    21300042: vagabond_mirror_21
+    21300044: vagabond_mirror_22
+    21300046: vagabond_mirror_23
+    21300048: vagabond_mirror_24
+    21300050: vagabond_mirror_25
+    21300052: vagabond_mirror_26
+    21300054: vagabond_mirror_27
+    21300056: vagabond_mirror_28
+    21300058: vagabond_mirror_29
+    21300060: vagabond_mirror_30
+    21300062: vagabond_mirror_31
+    21300064: vagabond_mirror_32
+    21300066: vagabond_mirror_33
+    21300068: vagabond_mirror_34
+    21300070: vagabond_mirror_35
+    21300072: vagabond_mirror_36
+    21300074: vagabond_mirror_37
+    21300076: vagabond_mirror_38
+    21300078: vagabond_mirror_39
+    21300080: vagabond_mirror_40
+    21300082: vagabond_mirror_41
+    21300084: vagabond_mirror_42
+    21300086: vagabond_mirror_43
+    21300088: vagabond_mirror_44
+    21300090: vagabond_mirror_45
+    21300092: vagabond_mirror_46
+    21300094: vagabond_mirror_47
+    21300096: vagabond_mirror_48
+    21300098: vagabond_mirror_49
+    21300100: vagabond_mirror_50
+    21300102: vagabond_mirror_51
+    21300104: vagabond_mirror_52
+    21300106: vagabond_mirror_53
+    21300108: vagabond_mirror_54
+    21300110: vagabond_mirror_55
+    21300112: vagabond_mirror_56
+    21300114: vagabond_mirror_57
+    21300116: vagabond_mirror_58
+    21300118: vagabond_mirror_59
+    21300120: vagabond_mirror_60
+    21300122: vagabond_mirror_61
+    21300124: vagabond_mirror_62
+    21300126: vagabond_mirror_63
+    21300128: vagabond_mirror_64
+    21300130: vagabond_mirror_65
+    21300132: vagabond_mirror_66
+    21300134: vagabond_mirror_67
+    21300136: vagabond_mirror_68
+    21300138: vagabond_mirror_69
+    21300140: vagabond_mirror_70
+    21300142: vagabond_mirror_71
+    21300144: vagabond_mirror_72
+    21300146: vagabond_mirror_73
+    21300148: vagabond_mirror_74
+    21300150: vagabond_mirror_75
+    21300152: vagabond_mirror_76
+    21300154: vagabond_mirror_77
+    21300156: vagabond_mirror_78
+    21300158: vagabond_mirror_79
+    21300160: vagabond_mirror_80
+    21300162: vagabond_mirror_81
+    21300164: vagabond_mirror_82
+    21300166: vagabond_mirror_83
+    21300168: vagabond_mirror_84
+    21300170: vagabond_mirror_85
+    21300172: vagabond_mirror_86
+    21300174: vagabond_mirror_87
+    21300176: vagabond_mirror_88
+    21300178: vagabond_mirror_89
+    21300180: vagabond_mirror_90
+    21300182: vagabond_mirror_91
+    21300184: vagabond_mirror_92
+    21300186: vagabond_mirror_93
+    21300188: vagabond_mirror_94
+    21300190: vagabond_mirror_95
+    21300192: vagabond_mirror_96
+    21300194: vagabond_mirror_97
+    21300196: vagabond_mirror_98
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vagabond_mirror_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 375
+        width: 75
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 378
+        width: 69
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_2
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 415
+        width: 4
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_3
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 380
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 381
+        width: 76
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_5
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 380
+        width: 82
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 366
+        width: 75
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_7
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 385
+        width: 93
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_8
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 375
+        width: 78
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_9
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 374
+        width: 90
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_10
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 311
+        width: 70
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_11
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 308
+        width: 68
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_12
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 304
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_13
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 298
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_14
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 290
+        width: 68
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_15
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 293
+        width: 66
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_16
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 294
+        width: 66
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_17
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 299
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_18
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 304
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_19
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 303
+        width: 79
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 214
+        width: 60
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 217
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_22
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 211
+        width: 79
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_23
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 231
+        width: 71
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_24
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 227
+        width: 70
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_25
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 222
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_26
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 223
+        width: 73
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_27
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 197
+        width: 50
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_28
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 221
+        width: 79
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_29
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 238
+        width: 104
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_30
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 125
+        width: 78
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_31
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 128
+        width: 77
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_32
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 132
+        width: 79
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_33
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 125
+        width: 59
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_34
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 121
+        width: 67
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_35
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 125
+        width: 70
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_36
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 129
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_37
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 131
+        width: 68
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_38
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 135
+        width: 65
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_39
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 134
+        width: 70
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_40
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 40
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_41
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 40
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_42
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 44
+        width: 70
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_43
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 45
+        width: 65
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_44
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 35
+        width: 97
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_45
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_46
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_47
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 3
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_48
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 2
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_49
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_50
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_51
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 2
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_52
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 3
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_53
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_54
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 2
+        width: 14
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_55
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_56
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_57
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_58
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_59
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_60
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 2
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_61
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 3
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_62
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 3
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_63
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_64
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_65
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_66
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_67
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 2
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_68
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_69
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 3
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_70
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_71
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_72
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_73
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_74
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_75
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 2
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_76
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 2
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_77
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_78
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 2
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_79
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 3
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_80
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_81
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_82
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 3
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_83
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_84
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_85
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_86
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_87
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_88
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_89
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_90
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 3
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_91
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_92
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_93
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_94
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_95
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 2
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_96
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 3
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_97
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 3
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: vagabond_mirror_98
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 3
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

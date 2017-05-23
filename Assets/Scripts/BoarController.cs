@@ -7,57 +7,77 @@ public class BoarController : MonoBehaviour {
     Transform playerPosition;
     Vector3 destination;
     Rigidbody2D kaban_body;
+    Animator kaban_animator;
     float kaban_velocity;
     float kaban_acceleration;
-    bool run;
-    private CustomSecondTrigger pdtf;
+    bool chasing;
+
+    float chaseThreshold = 1.5f; // distance within which to start chasing
+    float giveUpThreshold = 20f; // distance beyond which AI gives up
+    float attackThreshold = 2f; //distance beyond which ai starts to atack
+    float atackTime;
+    float attackCoulDown = 2.5f;
     // Use this for initialization
+
     void Start () {
         destination = Vector3.zero;
         playerPosition = null;
-        kaban_velocity = 0.05f;
+        kaban_velocity = 1.5f;
         kaban_acceleration = 0.025f;
         kaban_body = this.GetComponent<Rigidbody2D>();
-        run = false;
-        pdtf = this.gameObject.AddComponent<CustomSecondTrigger>();
-        pdtf.Sendee = gameObject;
+        kaban_animator = this.GetComponent<Animator>();
+        chasing = false;
     }
-    bool check_dist()
+    bool isChasing()
     {
         if (playerPosition == null)
             return false;
         destination = playerPosition.position;
         Vector3 kaban_position = new Vector3(kaban_body.position.x, kaban_body.position.y, 0);
         float dist = Mathf.Abs((destination - kaban_position).magnitude);
-        return dist > 1.5f && dist < 10f;
+        return dist > chaseThreshold && dist < giveUpThreshold;
     }
+    bool isInAtackRange()
+    {
+        if (playerPosition == null)
+            return false;
+        destination = playerPosition.position;
+        Vector3 kaban_position = new Vector3(kaban_body.position.x, kaban_body.position.y, 0);
+        float dist = Mathf.Abs((destination - kaban_position).magnitude);
+        return dist < attackThreshold;
+    }
+
 	// Update is called once per frame
 	void Update () {
-        run = check_dist();
-        if (run == true)
+        if (chasing == true)
         {
+            //kaban_animator.StopPlayback();
             destination = playerPosition.position;
-            //kaban_velocity += kaban_acceleration;
-            Vector3 kaban_position = new Vector3(kaban_body.position.x, kaban_body.position.y, 0);
-            kaban_body.velocity = kaban_velocity * (destination - kaban_position).normalized;
-            kaban_body.MovePosition(kaban_body.position + kaban_body.velocity);            
+            moveBoar(destination);
+            chasing = isChasing();
+            
         }
         else
         {
+            //kaban_animator.StartPlayback();
+            chasing = isChasing();
             kaban_body.velocity = Vector3.zero;
         }
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
+
+        if (isInAtackRange() && Time.time > atackTime)
+        {
+            attackTarget();
+            kaban_animator.SetInteger("Direction", 4);
+            atackTime = Time.time + attackCoulDown;
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Player")
         {
             Debug.Log("suda podoshol");
-            run = true;
-            kaban_velocity = 0.05f;
-            //kaban_acceleration = 0.1f;
+            chasing = true;
             playerPosition = collision.transform;
             destination = playerPosition.position;
         }
@@ -67,7 +87,7 @@ public class BoarController : MonoBehaviour {
     {
         if (collision.name == "Player")
         {
-            run = false;
+            chasing = false;
         }
     }
 
@@ -75,9 +95,9 @@ public class BoarController : MonoBehaviour {
     {
         if (collision.collider.name == "Player")
         {
-            run = false;
+            chasing = false;
             Vector3 kaban_position = new Vector3(kaban_body.position.x, kaban_body.position.y, 0);
-            kaban_body.velocity = (destination - kaban_position);
+            //kaban_body.velocity = (destination - kaban_position);
             collision.collider.GetComponent<Player>().changeHP(-5f);
             //Physics2DExtension.AddForce(collision.collider.transform.GetComponent<Rigidbody2D>(),
               // 10*kaban_body.mass*kaban_body.velocity, ForceMode.Impulse);
@@ -87,21 +107,28 @@ public class BoarController : MonoBehaviour {
             collision.collider.GetComponent<TreeBehaviour>().destroy();
         }
     }
-}
 
-public class CustomSecondTrigger : MonoBehaviour
-{
-    private GameObject sendee;
-    public GameObject Sendee
+    //attack
+    private void attackTarget()
     {
-        get { return sendee; }
-        set { sendee = value; }
+        playerPosition.GetComponent<Player>().changeHP(-5f);
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    //movement
+    private void moveBoar(Vector2 destination)
     {
-        //can send message to whomever or run our code here
-        collider.GetComponent<Player>().changeHP(-5f);
-        Debug.Log("pizda tebe");
+        moveInDirecrtion(calcDirection(destination));
     }
+    private Vector2 calcDirection(Vector2 targetPosition)
+    {
+        var dir_vec = (targetPosition - kaban_body.position).normalized;
+        return MoveDecider.direction(dir_vec.x, dir_vec.y);
+    }
+    private void moveInDirecrtion(Vector2 direction)
+    {
+        AnimatorMoveDecider.SetVagabondAnimationDirectionTest(kaban_animator, direction.x, direction.y);
+        kaban_body.velocity = kaban_velocity * direction;
+    }
+
 }
+

@@ -32,7 +32,8 @@ public class ShrubBehaviour : MapObject
         {
             Player character_move = collision.GetComponent<Player>();
             trigger_angle = new Vector3(0, 0, UnityEngine.Random.Range(-1.5f, 1.5f));
-            character_move.speedo = 0.05f;
+            //float x = 1f;
+            //character_move.speedo = x*2.5f;
             transform.Rotate(trigger_angle);
         }
     }
@@ -46,7 +47,7 @@ public class ShrubBehaviour : MapObject
             o_sprite.color = color;
             trigerred = false;
             Player character_move = collision.GetComponent<Player>();
-            character_move.speedo = 0.1f;
+            //character_move.speedo = 0.1f;
             transform.rotation = Quaternion.identity;
         }
     }

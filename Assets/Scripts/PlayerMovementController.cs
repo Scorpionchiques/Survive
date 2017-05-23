@@ -21,7 +21,6 @@ public class PlayerMovementController
 
         Vector3 movement = MoveDecider.direction(input.x, input.y);
 
-        rigidBody_player.velocity = speedo * (movement.normalized);
-        rigidBody_player.MovePosition(rigidBody_player.position + rigidBody_player.velocity);
+        rigidBody_player.velocity = speedo * (movement);       
     }
 }

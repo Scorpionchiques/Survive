@@ -1535,6 +1535,7 @@ GameObject:
   - component: {fileID: 1302954664}
   - component: {fileID: 1302954668}
   - component: {fileID: 1302954669}
+  - component: {fileID: 1302954670}
   m_Layer: 0
   m_Name: Boar
   m_TagString: Untagged
@@ -1553,9 +1554,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.1155458, y: -0.39799333}
+  m_Offset: {x: -0.052728668, y: -0.17775226}
   serializedVersion: 2
-  m_Size: {x: 1.8445385, y: 0.7147482}
+  m_Size: {x: 0.47854885, y: 0.27426565}
 --- !u!50 &1302954665
 Rigidbody2D:
   serializedVersion: 4
@@ -1607,7 +1608,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 37a5cb10bcd777f4bab48105cbf8b243, type: 3}
+  m_Sprite: {fileID: 21300022, guid: 67438a50d9ea8a844a1038e1fd89b9df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1619,7 +1620,7 @@ Transform:
   m_GameObject: {fileID: 1302954663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 0.8000001, y: 0.8000001, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 724530241}
   m_RootOrder: 5
@@ -1637,7 +1638,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 8, y: 10}
+  m_Size: {x: 4, y: 4}
 --- !u!114 &1302954669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1649,6 +1650,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51aff46bba2caa4b8a6f2c5789a655f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1302954670
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1302954663}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71196f8bea9e1974ab282b28ba497787, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1322146223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,6 +2085,11 @@ Prefab:
       propertyPath: inventoryPanel
       value: 
       objectReference: {fileID: 577894275}
+    - target: {fileID: 114054834282105510, guid: bafb898e00af6f94f88c026f1f1de018,
+        type: 2}
+      propertyPath: speedo
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bafb898e00af6f94f88c026f1f1de018, type: 2}
   m_IsPrefabParent: 0

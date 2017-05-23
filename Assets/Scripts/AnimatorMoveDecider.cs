@@ -65,4 +65,27 @@ public class AnimatorMoveDecider : MonoBehaviour {
             }
         }
     }
+
+    public static void SetVagabondAnimationDirectionTest(Animator animator, float input_x, float input_y)
+    {
+        int signx = Math.Sign(input_x), signy = Math.Sign(input_y);
+        string par_name_direction = "Direction";
+
+            if (signx > 0 && signy > 0)
+            {
+                animator.SetInteger(par_name_direction, 3);// 5 North-West 
+            }
+            if (signx > 0 && signy < 0)
+            {
+                animator.SetInteger(par_name_direction, 0);//7 South-West
+            }
+            if (signx < 0 && signy > 0)
+            {
+                animator.SetInteger(par_name_direction, 2);//4 North-East
+            }
+            if (signx < 0 && signy < 0)
+            {
+                animator.SetInteger(par_name_direction, 1);//6 South-East 
+            }
+        }
 }
